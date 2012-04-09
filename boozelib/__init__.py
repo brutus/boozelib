@@ -142,7 +142,7 @@ class User(object):
     self.weight = int(weight)
     self.height = int(height)
     self.sex = bool(sex) # female = True
-    self.name = name
+    self.name = str(name)
     self.bac = 0
 
   def __repr__(self):
@@ -176,7 +176,7 @@ class Drink(object):
   def __init__(self, volume, percent, name=None):
     self.volume = int(volume) # in ml
     self.percent = float(percent)
-    self.name = name
+    self.name = str(name)
 
   def __repr__(self):
     return "<Drink({0.volume}, {0.percent}, {0.name})".format(self)
