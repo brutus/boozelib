@@ -149,7 +149,7 @@ class User(object):
     return "<User({0.age}, {0.weight}, {0.height}, {0.sex}, {0.name})>".format(self)
 
   def __str__(self):
-    return "[{0.name}] {1.age} years, {2.weight} kg, {3.height} cm ({2}): {0.bac}".format(
+    return "[{0.name}] {0.age} years, {0.weight} kg, {0.height} cm ({1}): {0.bac}".format(
       self, 'female' if self.sex else 'male'
     )
 
@@ -182,7 +182,7 @@ class Drink(object):
     return "<Drink({0.volume}, {0.percent}, {0.name})".format(self)
 
   def __str__(self):
-    return "[{0.name}] Volumen: {0.volume}, Percent: {1.percent}".format(self)
+    return "[{0.name}] Volumen: {0.volume}, Percent: {0.percent}".format(self)
 
   def as_list(self):
     return [self.volume, self.percent, self.name]
