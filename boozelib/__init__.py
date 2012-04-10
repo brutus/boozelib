@@ -142,11 +142,13 @@ class User(object):
     self.weight = int(weight)
     self.height = int(height)
     self.sex = bool(sex) # female = True
-    self.name = str(name)
+    self.name = str(name) if name else None
     self.bac = 0
 
   def __repr__(self):
-    return "<User({0.age}, {0.weight}, {0.height}, {0.sex}, {0.name})>".format(self)
+    return "<User({0.age}, {0.weight}, {0.height}, {0.sex}, {1})>".format(
+      self, "'{0}'".format(self.name) if self.name else None
+    )
 
   def __str__(self):
     return "[{0.name}] {0.age} years, {0.weight} kg, {0.height} cm ({1}): {0.bac}".format(
