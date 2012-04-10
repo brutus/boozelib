@@ -178,10 +178,12 @@ class Drink(object):
   def __init__(self, volume, percent, name=None):
     self.volume = int(volume) # in ml
     self.percent = float(percent)
-    self.name = str(name)
+    self.name = str(name) if name else None
 
   def __repr__(self):
-    return "<Drink({0.volume}, {0.percent}, {0.name})".format(self)
+    return "<Drink({0.volume}, {0.percent}, {1})".format(
+      self, "'{0}'".format(self.name) if self.name else None
+    )
 
   def __str__(self):
     return "[{0.name}] Volumen: {0.volume}, Percent: {0.percent}".format(self)
