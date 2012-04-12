@@ -27,15 +27,15 @@ bac=0)``, that relies on the two provided classes: ``user`` and ``drink``:
         **any** class, as long as the needed attributes are present.
 
   *user* needs to have the following attributes:
-    - age (in years, integer)
-    - height (in cm, integer)
-    - weight (in kg, integer)
-    - sex (male = False, female = True)
-    - bac (optional, integer)
+    - age (in years: integer)
+    - height (in cm: integer)
+    - weight (in kg: integer)
+    - sex (male = False, female = True: bool)
+    - bac (optional - blood alcohl concentration: integer)
 
   *drink* needs to have the following attributes:
-    - volume (volume of the beverage: in ml, integer)
-    - percent (parts of alcohol in the beverage: in volume percent, integer)
+    - volume (volume of the beverage in ml: integer)
+    - percent (parts of alcohol in the beverage in volume percent: float)
 
 
 Benutzte Formeln
