@@ -17,9 +17,9 @@ The two main functions are:
 
 * ``get_bac(age, weight, height, sex, volume, percent)``
 
-  Returns the *Blood Alcohol Level* (raise) for a person (described by the
-  given attributes) after a drink containing *volume* ml of alcohol with the
-  given *percent* (vol/vol).
+  Returns the *Blood Alcohol Content* (raise) for a person (described
+  by the given attributes) after a drink containing *volume* ml of alcohol
+  with the given *percent* (vol/vol).
 
 * ``get_degradation(age, weight, height, sex, minutes)``
 
@@ -46,6 +46,7 @@ packages": ``sudo pip install nose`` or trough your OS package management, eg:
 If you don't have pip_ isntalled, you can get it with two commands:
 
     $ sudo curl http://python-distribute.org/distribute_setup.py | python
+    
     $ sudo curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py
 
 Thanks and Contributions
