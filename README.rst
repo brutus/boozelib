@@ -5,6 +5,8 @@ boozelib
 A Python module containing a couple of functions to calculate blood alcohol
 levels, along with some helper-stuff, a wrapper function and two classes.
 
+It's at home at GitHub: https://github.com/brutus/boozelib/
+
 **Dependencies**
 
 *boozelib* has no dependencies. If you want to run the included test cases
@@ -32,6 +34,8 @@ information and other probably helpful stuff.
 Testing
 =======
 
+If you find any bugs, issues or anything use the `issue tracker`_ on GitHub.
+
 If you want to run the test cases, see that you got the needed dependencies
 installed and run ``nosetests`` from the main directory (the one containing
 this file). If something fails, please get in touch.
@@ -57,3 +61,4 @@ Thanks and Contributions
 
 .. _nose: http://readthedocs.org/docs/nose/en/latest/testing.html
 .. _pip: http://www.pip-installer.org/en/latest/index.html
+.. _`issue tracker`: https://github.com/brutus/boozelib/issues
