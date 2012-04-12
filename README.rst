@@ -47,7 +47,7 @@ You can install nose_ with pip_ "a tool for installing and managing Python
 packages": ``sudo pip install nose`` or trough your OS package management, eg:
 ``sudo apt-get install python-nose`` or the like.
 
-If you don't have pip_ isntalled, you can get it with two commands:
+If you don't have pip_ installed, you can get it with two commands:
 
   ``$ sudo curl http://python-distribute.org/distribute_setup.py | python``
 
