@@ -49,9 +49,9 @@ packages": ``sudo pip install nose`` or trough your OS package management, eg:
 
 If you don't have pip_ isntalled, you can get it with two commands:
 
-    $ sudo curl http://python-distribute.org/distribute_setup.py | python
-    
-    $ sudo curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py
+  ``$ sudo curl http://python-distribute.org/distribute_setup.py | python``
+
+  ``$ sudo curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | python``
 
 Thanks and Contributions
 ========================
