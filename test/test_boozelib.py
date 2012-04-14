@@ -28,10 +28,10 @@ test_cases_degradation = (
 )
 
 test_cases_repr = (
-  (f1, "<User(32, 42, 155, True, None)>"),
-  (m2, "<User(34, 103, 186, False, 'ThatGuy')>"),
-  (beer, "<Drink(500, 4.9, None)>"),
-  (shot, "<Drink(100, 40.0, 'Wodka')>")
+  (f1, "User(32, 42, 155, True, None)"),
+  (m2, "User(34, 103, 186, False, 'ThatGuy')"),
+  (beer, "Drink(500, 4.9, None)"),
+  (shot, "Drink(100, 40.0, 'Wodka')")
 )
 
 test_cases_str = (
