@@ -146,7 +146,7 @@ class User(object):
     self.bac = 0
 
   def __repr__(self):
-    return "<User({0.age}, {0.weight}, {0.height}, {0.sex}, {1})>".format(
+    return "User({0.age}, {0.weight}, {0.height}, {0.sex}, {1})".format(
       self, "'{0}'".format(self.name) if self.name else None
     )
 
@@ -181,7 +181,7 @@ class Drink(object):
     self.name = str(name) if name else None
 
   def __repr__(self):
-    return "<Drink({0.volume}, {0.percent}, {1})>".format(
+    return "Drink({0.volume}, {0.percent}, {1})".format(
       self, "'{0}'".format(self.name) if self.name else None
     )
 
