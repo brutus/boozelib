@@ -261,6 +261,8 @@ def get_blood_alcohol(user, drink=None, minutes=0, bac=0):
       user.age, user.weight, user.height, user.sex,
       minutes
     )
+  if bac < 0:
+    bac = 0
   if drink:
     bac += get_bac(
       user.age, user.weight, user.height, user.sex,
