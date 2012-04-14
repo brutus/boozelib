@@ -168,6 +168,8 @@ class User(object):
       self.age, self.weight, self.height, self.sex,
       minutes
     )
+    if self.bac < 0:
+      self.bac = 0
 
   def as_list(self):
     return [self.age, self.weight, self.height, self.sex, self.name]
