@@ -246,7 +246,10 @@ def degrade_bac(age, weight, height, sex, bac, minutes):
   """Returns the new blood alcohol level (per mill) after *minutes*"""
   alc_old = promille_to_gramm(bac, age, weight, height, sex)
   alc_new = alc_old - calculate_degradation(weight, minutes)
-  return gramm_to_promille(alc_new, age, weight, height, sex)
+  if alc_new < 0
+    return 0
+  else:
+    return gramm_to_promille(alc_new, age, weight, height, sex)
 
 
 def get_blood_alcohol(user, drink=None, minutes=0, bac=0):
