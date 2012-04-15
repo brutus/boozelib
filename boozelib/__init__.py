@@ -1,42 +1,40 @@
 """boozelib
 
-A Python module containing a couple of functions to calculate blood alcohol
-levels, along with some helper-stuff, a wrapper function and two classes.
+A Python module containing a couple of functions to calculate the
+*blood alcohol content* of people.
+
+It's at home at GitHub: https://github.com/brutus/boozelib/
 
 Functions
 =========
 
+The two main functions are:
+
 * ``get_bac(age, weight, height, sex, volume, percent)``
 
-  Returns the *Blood Alcohol Level* (raise) for a person (described by the
+  Returns the **Blood Alcohol Content** (raise) for a person (described by the
   given attributes) after a drink containing *volume* ml of alcohol with the
   given *percent* (vol/vol).
 
 * ``get_degradation(age, weight, height, sex, minutes)``
 
-  Returns the amount of alcohol (per mill) that a person with the given
-  stats degenerates in x *minutes*.
+  Returns the **amount of alcohol (per mill)** that a person with the given
+  stats degenerates in the given number of *minutes*.
 
-Wrapper & Classes
------------------
+Examples
+--------
 
-There is also a wrapper function ``get_new_bak(user, drink=None, minutes=0,
-bac=0)``, that relies on the two provided classes: ``user`` and ``drink``:
+>>> get_bac(32, 96, 186, False, 500, 4.9)
+0.28773587455687716
 
-  Note: The two included classes are just for convenience, you can use
-        **any** class, as long as the needed attributes are present.
+>>> get_bac(32, 48, 162, True, 500, 4.9)
+0.5480779730398769
 
-  *user* needs to have the following attributes:
-    - age (in years: integer)
-    - height (in cm: integer)
-    - weight (in kg: integer)
-    - sex (male = False, female = True: bool)
-    - bac (optional - blood alcohl concentration: integer)
+>>> get_degradation(32, 96, 186, False, 60)
+0.21139778538872606
 
-  *drink* needs to have the following attributes:
-    - volume (volume of the beverage in ml: integer)
-    - percent (parts of alcohol in the beverage in volume percent: float)
-
+>>> get_degradation(32, 48, 162, True, 60)
+0.20133476560648536
 
 Benutzte Formeln
 ================
@@ -116,82 +114,26 @@ Thanks and Contributions
 * Big hugs to Mathilda for hanging around and helping me figuring out all
   that math and biology stuff.
 
+If you find any bugs, issues or anything, please use the
+`issue tracker`_ on GitHub.
+
+
+.. _`issue tracker`: https://github.com/brutus/boozelib/issues
+
 """
 
-__version__ = '0.1.3'
+__version__ = '0.2'
 __author__  = 'Brutus [DMC] <brutus.dmc@googlemail.com>'
 __license__ = 'GNU General Public License v3 or above - '\
               'http://www.opensource.org/licenses/gpl-3.0.html'
 
 
-__all__ = (
-  'get_bac', 'get_degradation', 'get_blood_alcohol', 'degrade_bac',
-  'User', 'Drink'
-)
+__all__ = ( 'get_bac', 'get_degradation' )
 
 
 PA = 0.8 # density of alcohol (g/ml)
 PB = 1.055 # density of blood (g/cm^3)
 W = 0.8 # parts of water in blood (%)
-
-
-class User(object):
-
-  def __init__(self, age, weight, height, sex, name=None):
-    self.age = int(age)
-    self.weight = int(weight)
-    self.height = int(height)
-    self.sex = bool(sex) # female = True
-    self.name = str(name) if name else None
-    self.bac = 0
-
-  def __repr__(self):
-    return "User({0.age}, {0.weight}, {0.height}, {0.sex}, {1})".format(
-      self, "'{0}'".format(self.name) if self.name else None
-    )
-
-  def __str__(self):
-    return "[{0.name}] {0.age} years, {0.weight} kg, {0.height} cm ({1}): {0.bac}".format(
-      self, 'female' if self.sex else 'male'
-    )
-
-  def drink(self, drink, minutes=0):
-    self.bac += get_bac(
-      self.age, self.weight, self.height, self.sex,
-      drink.volume, drink.percent
-    )
-    if minutes:
-      self.wait(minutes)
-
-  def wait(self, minutes):
-    self.bac -= get_degradation(
-      self.age, self.weight, self.height, self.sex,
-      minutes
-    )
-    if self.bac < 0:
-      self.bac = 0
-
-  def as_list(self):
-    return [self.age, self.weight, self.height, self.sex, self.name]
-
-
-class Drink(object):
-
-  def __init__(self, volume, percent, name=None):
-    self.volume = int(volume) # in ml
-    self.percent = float(percent)
-    self.name = str(name) if name else None
-
-  def __repr__(self):
-    return "Drink({0.volume}, {0.percent}, {1})".format(
-      self, "'{0}'".format(self.name) if self.name else None
-    )
-
-  def __str__(self):
-    return "[{0.name}] Volumen: {0.volume}, Percent: {0.percent}".format(self)
-
-  def as_list(self):
-    return [self.volume, self.percent, self.name]
 
 
 def calculate_alcohol(volume, percent):
@@ -205,7 +147,7 @@ def calculate_degradation(weight, minutes):
   return 0.0025 * weight * minutes
 
 def calculate_bw(age, weight, height, sex):
-  """Returns the amount of water (in liter) in a persons body"""
+  """Return the amount of water (in liter) in a persons body"""
   if sex: # female
     return 0.203 - (0.07 * age) + (0.1069 * height) + (0.2466 * weight)
   else: # male
@@ -213,13 +155,13 @@ def calculate_bw(age, weight, height, sex):
 
 def promille_to_gramm(bac, age, weight, height, sex):
   """Return the amount of alcohol (in gramm) for a person with the given
-     body stats and blood alcohol concentration (per mill)
+     body stats and blood alcohol content (per mill)
   """
   bw = calculate_bw(age, weight, height, sex)
   return (bac * (PB * bw)) / W
 
 def gramm_to_promille(gramm, age, weight, height, sex):
-  """Return the blood alcohol concentration (per mill) for a person with the
+  """Return the blood alcohol content (per mill) for a person with the
      given body stats and amount of alcohol (in gramm) in blood
   """
   bw = calculate_bw(age, weight, height, sex)
@@ -227,14 +169,17 @@ def gramm_to_promille(gramm, age, weight, height, sex):
 
 
 def get_bac(age, weight, height, sex, volume, percent):
-  """Return the blood alcohol concentration (per mill) after a given drink."""
+  """Return (the raise of) the blood alcohol content (per mill) after the
+     given drink.
+  """
   return gramm_to_promille(
     calculate_alcohol(volume, percent),
     age, weight, height, sex
   )
 
+
 def get_degradation(age, weight, height, sex, minutes):
-  """Return the ammount of alcohl (in per mill) that a body with given stats
+  """Return the ammount of alcohl (per mill) that a body with given stats
      degenerates in the given *minutes*
   """
   return gramm_to_promille(
@@ -242,33 +187,7 @@ def get_degradation(age, weight, height, sex, minutes):
     age, weight, height, sex
   )
 
-def degrade_bac(age, weight, height, sex, bac, minutes):
-  """Returns the new blood alcohol level (per mill) after *minutes*"""
-  alc_old = promille_to_gramm(bac, age, weight, height, sex)
-  alc_new = alc_old - calculate_degradation(weight, minutes)
-  if alc_new < 0:
-    return 0
-  else:
-    return gramm_to_promille(alc_new, age, weight, height, sex)
 
-
-def get_blood_alcohol(user, drink=None, minutes=0, bac=0):
-  """Returns blood alcohol concentration in (per mill).
-     Takes previous bac and time passed into account.
-
-    Utillity function for use with ``user`` and ``drink`` objects
-
-  """
-  if minutes and bac > 0:
-    bac -= get_degradation(
-      user.age, user.weight, user.height, user.sex,
-      minutes
-    )
-  if bac < 0:
-    bac = 0
-  if drink:
-    bac += get_bac(
-      user.age, user.weight, user.height, user.sex,
-      drink.volume, drink.percent
-    )
-  return bac
+if __name__ == '__main__':
+  import doctest
+  doctest.testmod()
