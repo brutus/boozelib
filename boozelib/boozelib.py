@@ -1,4 +1,4 @@
-"""boozelib
+"""Calculate blood alcohol content
 
 A Python module containing a couple of functions to calculate the
 *blood alcohol content* of people.
