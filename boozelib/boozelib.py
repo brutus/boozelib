@@ -128,7 +128,11 @@ __license__ = 'GNU General Public License v3 or above - '\
               'http://www.opensource.org/licenses/gpl-3.0.html'
 
 
-#__all__ = ( 'get_bac', 'get_degradation' )
+__all__ = (
+  'get_bac', 'get_degradation',
+  'calculate_alcohol', 'calculate_degradation', 'calculate_bw',
+  'gramm_to_promille', 'promille_to_gramm'
+)
 
 
 PA = 0.8 # density of alcohol (g/ml)
