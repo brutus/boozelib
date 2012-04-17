@@ -1,0 +1,169 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Used Formulas &mdash; boozelib 0.3.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="boozelib 0.3.0 documentation" href="index.html" />
+    <link rel="prev" title="Functions" href="functions.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="functions.html" title="Functions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">boozelib 0.3.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="used-formulas">
+<h1>Used Formulas<a class="headerlink" href="#used-formulas" title="Permalink to this headline">¶</a></h1>
+<p>Note: The following documentation of the used formulars is in german... Sorry,
+but I&#8217;m too laszy to translate them right now. <tt class="docutils literal"><span class="pre">:(</span></tt> Google around
+<strong>Widmark</strong> and <strong>Watson</strong> for starters.</p>
+<p>Wir errechnen die Blut Alkohol Konzentration (BAK) in Gramm pro Kilogramm.</p>
+<div class="section" id="variablen-und-konstanten">
+<h2>Variablen und Konstanten<a class="headerlink" href="#variablen-und-konstanten" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">pa</span></tt> = Dichte von Alkohols (g/ml) = 0.8</div>
+<div class="line"><tt class="docutils literal"><span class="pre">pb</span></tt> = Dichte von Blut (g/cm<sup>3</sup>) = 1.055</div>
+<div class="line"><tt class="docutils literal"><span class="pre">w</span></tt> = Anteil von Wasser im Blut (%) = 0.8</div>
+<div class="line"><br /></div>
+<div class="line"><tt class="docutils literal"><span class="pre">v</span></tt> = Volumen des Getraenks (ml)</div>
+<div class="line"><tt class="docutils literal"><span class="pre">e</span></tt> = Alkoholanteil des Getraenks (<sup>v</sup>/<sub>v</sub>)</div>
+<div class="line"><br /></div>
+<div class="line"><tt class="docutils literal"><span class="pre">t</span></tt> = Alter in Jahren</div>
+<div class="line"><tt class="docutils literal"><span class="pre">h</span></tt> = Groesse in cm</div>
+<div class="line"><tt class="docutils literal"><span class="pre">m</span></tt> = Gewicht in kg</div>
+</div>
+</div>
+<div class="section" id="widmark-formel">
+<h2>Widmark-Formel<a class="headerlink" href="#widmark-formel" title="Permalink to this headline">¶</a></h2>
+<p>Blut Alkohol Konzentration (BAK) =&gt; <strong>c</strong></p>
+<p><tt class="docutils literal"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">A</span> <span class="pre">/</span> <span class="pre">(m</span> <span class="pre">*</span> <span class="pre">r)</span></tt></p>
+<p>Aufgenommene Masse des Alkohols in Gramm =&gt; <strong>A</strong></p>
+<p><tt class="docutils literal"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">V</span> <span class="pre">*</span> <span class="pre">e</span> <span class="pre">*</span> <span class="pre">pa</span></tt></p>
+<p>Reduktionsfaktor =&gt; <strong>r</strong></p>
+<p>r (male) = 0,7
+r (female) = 0,6</p>
+<div class="section" id="watson-ergaenzung">
+<h3>Watson-Ergaenzung<a class="headerlink" href="#watson-ergaenzung" title="Permalink to this headline">¶</a></h3>
+<p>Reduktionsfaktor =&gt; <strong>r</strong></p>
+<p><tt class="docutils literal"><span class="pre">r</span> <span class="pre">=</span> <span class="pre">(pb</span> <span class="pre">*</span> <span class="pre">kw)</span> <span class="pre">/</span> <span class="pre">(w</span> <span class="pre">*</span> <span class="pre">m)</span></tt></p>
+<p>Gesamtkoerperwasser (nach Geschlecht) =&gt; <strong>kw</strong></p>
+<p>kw (male)   = 2,447 - (0,09516 * t) + (0,1074 * h) + (0,3362 * m)
+kw (female) = 0,203 - (0,07 * t)    + (0,1069 * h) + (0,2466 * m)</p>
+</div>
+<div class="section" id="zusammengefasst">
+<h3>Zusammengefasst<a class="headerlink" href="#zusammengefasst" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">(pa</span> <span class="pre">*</span> <span class="pre">v</span> <span class="pre">*</span> <span class="pre">e</span> <span class="pre">*</span> <span class="pre">w)</span> <span class="pre">/</span> <span class="pre">(pb</span> <span class="pre">*</span> <span class="pre">kw)</span></tt></p>
+</div>
+<div class="section" id="finale-formel">
+<h3>Finale Formel<a class="headerlink" href="#finale-formel" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>female: <tt class="docutils literal"><span class="pre">(pa</span> <span class="pre">*</span> <span class="pre">v</span> <span class="pre">*</span> <span class="pre">e</span> <span class="pre">*</span> <span class="pre">w)</span> <span class="pre">/</span> <span class="pre">(pb</span> <span class="pre">*</span> <span class="pre">(0,203</span> <span class="pre">-</span> <span class="pre">(0,07</span> <span class="pre">*</span> <span class="pre">t)</span>&nbsp;&nbsp;&nbsp; <span class="pre">+</span> <span class="pre">(0,1069</span> <span class="pre">*</span> <span class="pre">h)</span> <span class="pre">+</span> <span class="pre">(0,2466</span> <span class="pre">*</span> <span class="pre">m)))</span></tt></li>
+<li>male: <tt class="docutils literal"><span class="pre">(pa</span> <span class="pre">*</span> <span class="pre">v</span> <span class="pre">*</span> <span class="pre">e</span> <span class="pre">*</span> <span class="pre">w)</span> <span class="pre">/</span> <span class="pre">(pb</span> <span class="pre">*</span> <span class="pre">(2,447</span> <span class="pre">-</span> <span class="pre">(0,09516</span> <span class="pre">*</span> <span class="pre">t)</span> <span class="pre">+</span> <span class="pre">(0,1074</span> <span class="pre">*</span> <span class="pre">h)</span> <span class="pre">+</span> <span class="pre">(0,3362</span> <span class="pre">*</span> <span class="pre">m)))</span></tt></li>
+</ul>
+</div>
+</div>
+<div class="section" id="alcohol-degradation">
+<h2>Alcohol degradation<a class="headerlink" href="#alcohol-degradation" title="Permalink to this headline">¶</a></h2>
+<p>Average is 0.15 g/kg per hour (0.0025 per minute).</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Used Formulas</a><ul>
+<li><a class="reference internal" href="#variablen-und-konstanten">Variablen und Konstanten</a></li>
+<li><a class="reference internal" href="#widmark-formel">Widmark-Formel</a><ul>
+<li><a class="reference internal" href="#watson-ergaenzung">Watson-Ergaenzung</a></li>
+<li><a class="reference internal" href="#zusammengefasst">Zusammengefasst</a></li>
+<li><a class="reference internal" href="#finale-formel">Finale Formel</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#alcohol-degradation">Alcohol degradation</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="functions.html"
+                        title="previous chapter">Functions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/formulas.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="functions.html" title="Functions"
+             >previous</a> |</li>
+        <li><a href="index.html">boozelib 0.3.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Brutus.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
