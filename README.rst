@@ -68,7 +68,7 @@ Install only for the current user:
 Install pip
 ~~~~~~~~~~~
 
-If you don't have pip_ installed yet, you can get with these two commands:
+If you don't have pip_ installed yet, you can get it with these two commands:
 
   ``$ sudo curl http://python-distribute.org/distribute_setup.py | python``
 
