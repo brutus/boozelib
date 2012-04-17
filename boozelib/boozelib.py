@@ -36,72 +36,68 @@ Examples
 >>> get_degradation(32, 48, 162, True, 60)
 0.20133476560648536
 
-Benutzte Formeln
-================
+Used Formulas
+=============
 
-Note: The following documentation of the used formulars is in german;
-      sorry, but I'm too laszy to translate them right now.
-      Google around 'Widmark' and 'Watson' for starters.
+Note: The following documentation of the used formulars is in german... Sorry,
+but I'm too laszy to translate them right now. ``:(`` Google around
+**Widmark** and **Watson** for starters.
 
 Wir errechnen die Blut Alkohol Konzentration (BAK) in Gramm pro Kilogramm.
 
 Variablen und Konstanten
 ------------------------
 
-  pa = Dichte von Alkohols (g/ml) = 0.8
-  pb = Dichte von Blut (g/cm^3) = 1.055
-   w = Anteil von Wasser im Blut (%) = 0.8
-
-   v = Volumen des Getraenks (ml)
-   e = Alkoholanteil des Getraenks (v/v)
-
-   t = Alter in Jahren
-   h = Groesse in cm
-   m = Gewicht in kg
+| ``pa`` = Dichte von Alkohols (g/ml) = 0.8
+| ``pb`` = Dichte von Blut (g/cm\ :sup:`3`) = 1.055
+| ``w`` = Anteil von Wasser im Blut (%) = 0.8
+|
+| ``v`` = Volumen des Getraenks (ml)
+| ``e`` = Alkoholanteil des Getraenks (:sup:`v`/:sub:`v`)
+|
+| ``t`` = Alter in Jahren
+| ``h`` = Groesse in cm
+| ``m`` = Gewicht in kg
 
 Widmark-Formel
 --------------
 
-  Blut Alkohol Konzentration (BAK) => **c**
+Blut Alkohol Konzentration (BAK) => **c**
 
-  ``c = A / (m * r)``
+``c = A / (m * r)``
 
-  Aufgenommene Masse des Alkohols in Gramm => **A**
+Aufgenommene Masse des Alkohols in Gramm => **A**
 
-  ``A = V * e * pa``
+``A = V * e * pa``
 
-  Reduktionsfaktor => **r**
+Reduktionsfaktor => **r**
 
-  r (male) = 0,7
-  r (female) = 0,6
+r (male) = 0,7
+r (female) = 0,6
 
 Watson-Ergaenzung
 ~~~~~~~~~~~~~~~~~
 
-  Reduktionsfaktor => **r**
+Reduktionsfaktor => **r**
 
-  r = (pb * kw) / (w * m)
+``r = (pb * kw) / (w * m)``
 
-  Gesamtkoerperwasser (nach Geschlecht) => **kw**
+Gesamtkoerperwasser (nach Geschlecht) => **kw**
 
-  kw (male)   = 2,447 - (0,09516 * t) + (0,1074 * h) + (0,3362 * m)
-  kw (female) = 0,203 - (0,07 * t)    + (0,1069 * h) + (0,2466 * m)
+kw (male)   = 2,447 - (0,09516 * t) + (0,1074 * h) + (0,3362 * m)
+kw (female) = 0,203 - (0,07 * t)    + (0,1069 * h) + (0,2466 * m)
 
 Zusammengefasst
 ~~~~~~~~~~~~~~~
 
-  BAK = (pa * v * e * w) / (pb * kw)
+``c = (pa * v * e * w) / (pb * kw)``
 
 Finale Formel
 ~~~~~~~~~~~~~
 
-female =
+* female: ``(pa * v * e * w) / (pb * (0,203 - (0,07 * t)    + (0,1069 * h) + (0,2466 * m)))``
 
- (pa * v * e * w) / (pb * (0,203 - (0,07 * t)    + (0,1069 * h) + (0,2466 * m)))
-
-male =
-
- (pa * v * e * w) / (pb * (2,447 - (0,09516 * t) + (0,1074 * h) + (0,3362 * m)))
+* male: ``(pa * v * e * w) / (pb * (2,447 - (0,09516 * t) + (0,1074 * h) + (0,3362 * m)))``
 
 Alcohol degradation
 -------------------
@@ -135,9 +131,9 @@ __all__ = (
 )
 
 
-PA = 0.8 # density of alcohol (g/ml)
-PB = 1.055 # density of blood (g/cm^3)
-W = 0.8 # parts of water in blood (%)
+PA = 0.8 #: density of alcohol (g/ml)
+PB = 1.055 #: density of blood (g/cm^3)
+W = 0.8 #: parts of water in blood (%)
 
 
 def calculate_alcohol(volume, percent):
@@ -173,8 +169,9 @@ def gramm_to_promille(gramm, age, weight, height, sex):
 
 
 def get_bac(age, weight, height, sex, volume, percent):
-  """Return (the raise of) the blood alcohol content (per mill) after the
-     given drink.
+  """Returns the *Blood Alcohol Content* (raise) for a person (described by
+     the given attributes) after a drink containing *volume* ml of alcohol with
+     the given *percent* (vol/vol).
   """
   return gramm_to_promille(
     calculate_alcohol(volume, percent),
@@ -183,8 +180,8 @@ def get_bac(age, weight, height, sex, volume, percent):
 
 
 def get_degradation(age, weight, height, sex, minutes):
-  """Return the ammount of alcohl (per mill) that a body with given stats
-     degenerates in the given *minutes*
+  """Returns the *alcohol degradation* (per mill) of a person with the given
+     stats in the given number of *minutes*.
   """
   return gramm_to_promille(
     calculate_degradation(weight, minutes),
