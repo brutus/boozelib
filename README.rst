@@ -104,7 +104,7 @@ test_boozelib``
 If something fails, please get in touch.
 
 Install nose
-~~~~~~~~~~~~
+------------
 
 You can install nose_ with pip_ ``sudo pip install nose`` or propably also
 trough your OS package management, eg: ``sudo apt-get install python-nose`` or
