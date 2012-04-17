@@ -29,7 +29,8 @@ The two main functions are:
 See the documentation inside the source file (``boozelib.py``) for more
 information and other probably helpful stuff.
 
-If you got **boozelib** installed, you can get help with ``pydoc boozelib``.
+You can browse the full documentation_ online. Or you can get help with
+``pydoc boozelib``, if you already got **boozelib** installed.
 
 Examples
 --------
@@ -119,8 +120,8 @@ Thanks and Contributions
 If you find any bugs, issues or anything, please use the `issue tracker`_ on
 GitHub.
 
-
+.. _documentation: http://boozelib.readthedocs.org/
+.. _`issue tracker`: https://github.com/brutus/boozelib/issues
+.. _sourceball: https://github.com/brutus/boozelib/zipball/master
 .. _nose: http://readthedocs.org/docs/nose/en/latest/testing.html
 .. _pip: http://www.pip-installer.org/en/latest/index.html
-.. _sourceball: https://github.com/brutus/boozelib/zipball/master
-.. _`issue tracker`: https://github.com/brutus/boozelib/issues
