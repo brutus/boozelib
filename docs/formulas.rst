@@ -35,7 +35,7 @@ Aufgenommene Masse des Alkohols in Gramm => **A**
 Reduktionsfaktor => **r**
 
 * male: ``r = 0,7``
-* female: ``r = 0,6`
+* female: ``r = 0,6``
 
 Watson-Ergaenzung
 ~~~~~~~~~~~~~~~~~
