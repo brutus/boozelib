@@ -1,3 +1,4 @@
+v0.4,   2012-04-18 -- Support for sphinx and `readthedocs.org`.
 v0.3,   2012-04-17 -- Support for distutils.
 v0.2,   2012-04-15 -- Big cleanup, moved classes etc. to ``Booze``.
 v0.1.3, 2012-04-14 -- No more negative bac values.
