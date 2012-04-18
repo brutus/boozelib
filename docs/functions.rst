@@ -1,5 +1,5 @@
-Functions
-=========
+Modul Documentation
+===================
 
 Constants
 ---------
