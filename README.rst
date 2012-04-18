@@ -27,10 +27,10 @@ The two main functions are:
   stats in the given number of *minutes*.
 
 See the documentation inside the source file (``boozelib.py``) for more
-information and other probably helpful stuff.
-
-You can browse the full documentation_ online. Or you can get help with
-``pydoc boozelib``, if you already got **boozelib** installed.
+information and other probably helpful stuff. You can browse the full
+documentation_ online, there is also a quick overview_ of all available
+constants and functions. Or you can get help with ``pydoc boozelib``, if you
+already got **boozelib** installed.
 
 If you're interested in the used formulas, see the source and documentation or
 browse the formulas_ online (maybe easier to read).
@@ -124,6 +124,7 @@ If you find any bugs, issues or anything, please use the `issue tracker`_ on
 GitHub.
 
 .. _documentation: http://boozelib.readthedocs.org/
+.. _overview: http://boozelib.readthedocs.org/en/latest/functions.html
 .. _formulas: http://boozelib.readthedocs.org/en/latest/formulas.html
 .. _`issue tracker`: https://github.com/brutus/boozelib/issues
 .. _sourceball: https://github.com/brutus/boozelib/zipball/master
