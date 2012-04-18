@@ -72,8 +72,8 @@ Aufgenommene Masse des Alkohols in Gramm => **A**
 
 Reduktionsfaktor => **r**
 
-r (male) = 0,7
-r (female) = 0,6
+* male: ``r = 0,7``
+* female: ``r = 0,6``
 
 Watson-Ergaenzung
 ~~~~~~~~~~~~~~~~~
@@ -84,8 +84,8 @@ Reduktionsfaktor => **r**
 
 Gesamtkoerperwasser (nach Geschlecht) => **kw**
 
-kw (male)   = 2,447 - (0,09516 * t) + (0,1074 * h) + (0,3362 * m)
-kw (female) = 0,203 - (0,07 * t)    + (0,1069 * h) + (0,2466 * m)
+* male ``kw = 2,447 - (0,09516 * t) + (0,1074 * h) + (0,3362 * m)``
+* female ``kw = 0,203 - (0,07 * t)    + (0,1069 * h) + (0,2466 * m)``
 
 Zusammengefasst
 ~~~~~~~~~~~~~~~
@@ -95,9 +95,9 @@ Zusammengefasst
 Finale Formel
 ~~~~~~~~~~~~~
 
-* female: ``(pa * v * e * w) / (pb * (0,203 - (0,07 * t)    + (0,1069 * h) + (0,2466 * m)))``
-
 * male: ``(pa * v * e * w) / (pb * (2,447 - (0,09516 * t) + (0,1074 * h) + (0,3362 * m)))``
+
+* female: ``(pa * v * e * w) / (pb * (0,203 - (0,07 * t)    + (0,1069 * h) + (0,2466 * m)))``
 
 Alcohol degradation
 -------------------
