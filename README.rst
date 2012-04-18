@@ -32,6 +32,9 @@ information and other probably helpful stuff.
 You can browse the full documentation_ online. Or you can get help with
 ``pydoc boozelib``, if you already got **boozelib** installed.
 
+If you're interested in the used formulas, see the source and documentation or
+browse the formulas_ online (maybe easier to read).
+
 Examples
 --------
 
@@ -121,6 +124,7 @@ If you find any bugs, issues or anything, please use the `issue tracker`_ on
 GitHub.
 
 .. _documentation: http://boozelib.readthedocs.org/
+.. _formulas: http://boozelib.readthedocs.org/en/latest/formulas.html
 .. _`issue tracker`: https://github.com/brutus/boozelib/issues
 .. _sourceball: https://github.com/brutus/boozelib/zipball/master
 .. _nose: http://readthedocs.org/docs/nose/en/latest/testing.html
