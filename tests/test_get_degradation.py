@@ -8,7 +8,7 @@ from tests.fixtures import user_paul
 from tests.fixtures import user_tyrice
 
 
-@test("run case for `get_degradation`: {user} → {minutes}", tags=["integration"])
+@test("case for `get_degradation`: {user} → {minutes}", tags=["integration"])
 def _(
     user=each(user_emma, user_komathy, user_tyrice, user_paul),
     minutes=60,

@@ -17,7 +17,7 @@ Contents
 
 .. toctree::
    :maxdepth: 2
-   
+
    install
    functions
    formulas
@@ -27,7 +27,7 @@ Functions
 
 The two main functions are:
 
-.. autofunction:: boozelib.get_bac
+.. autofunction:: boozelib.get_blood_alcohol_content
    :noindex:
 
 .. autofunction:: boozelib.get_degradation
@@ -39,10 +39,10 @@ help with ``pydoc boozelib``, if you already got **boozelib** installed.
 Examples
 --------
 
->>> from boozelib import get_bac, get_degradation
->>> get_bac(32, 96, 186, False, 500, 4.9)
+>>> from boozelib import get_blood_alcohol_content, get_degradation
+>>> get_blood_alcohol_content(32, 96, 186, False, 500, 4.9)
 0.28773587455687716
->>> get_bac(32, 48, 162, True, 500, 4.9)
+>>> get_blood_alcohol_content(32, 48, 162, True, 500, 4.9)
 0.5480779730398769
 >>> get_degradation(32, 96, 186, False, 60)
 0.21139778538872606

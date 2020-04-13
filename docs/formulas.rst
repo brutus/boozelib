@@ -10,7 +10,7 @@ Wir errechnen die Blut Alkohol Konzentration (BAK) in Gramm pro Kilogramm.
 Variablen und Konstanten
 ------------------------
 
-| ``pa`` = Dichte von Alkohols (g/ml) = 0.8
+| ``pa`` = Dichte von Alkohol (g/ml) = 0.8
 | ``pb`` = Dichte von Blut (g/cm\ :sup:`3`) = 1.055
 | ``w`` = Anteil von Wasser im Blut (%) = 0.8
 |

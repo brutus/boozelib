@@ -44,9 +44,9 @@ Install only for the current user:
 Testing
 =======
 
-There are some doctes in the module, you can run them from the ``boozelib``
-directory by either running the module by itself ``python boozelib.py`` or
-running ``python -m doctest -v boozelib.py``.
+There are some doctes in the module, you can run them like::
+
+	python -m doctest src/boozelib.py
 
 If you want to run the test cases, see that you got nose_ installed and run
 ``nosetests`` from the ``boozelib`` directory (the one containing the module).
