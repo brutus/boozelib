@@ -9,6 +9,8 @@ flit = "*"
 nox = "*"
 pre-commit = "*"
 towncrier = "*"
+sphinx = "*"
+sphinx-rtd-theme = "*"
 
 [packages]
 
