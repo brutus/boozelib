@@ -19,6 +19,32 @@ PYTHON_FILES = [
 nox.options.reuse_existing_virtualenvs = True
 
 
+def check_syntax(session):
+    """ Check Python syntax. """
+    session.install("flakehell")
+    session.run("flakehell", "lint", *PYTHON_FILES)
+
+
+@nox.session
+def check_style(session):
+    """ Check Python style. """
+    session.install("black")
+    session.run("black", "--check", *PYTHON_FILES)
+
+
+@nox.session
+def check_imports(session):
+    """ Check Python imports. """
+    session.install("reorder_python_imports")
+    session.run(
+        "reorder-python-imports",
+        "--application-directories",
+        ".:src",
+        "--diff-only",
+        *PYTHON_FILES
+    )
+
+
 @nox.session
 def doc_tests(session):
     """ Run all integration tests. """
