@@ -13,6 +13,21 @@ You can find the issue tracker at <https://github.com/brutus/boozelib/issues>.
 
 .. towncrier release notes start
 
+0.4.1 (2020-04-13)
+==================
+
+Features
+--------
+
+- Manage development requirements in a *virtual environment* with `pipenv <https://github.com/pypa/pipen>`_.
+- Handle version bumps with `bump2version <https://github.com/c4urself/bump2version>`_.
+- Use `towncrier <https://github.com/twisted/towncrier>`_ for tracking changes.
+
+Changes
+-------
+
+- Converted ``CHANGES.rst`` to ``CHANGELOG.rst``.
+
 0.4 (2012-04-18)
 ================
 
