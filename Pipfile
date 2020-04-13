@@ -6,6 +6,7 @@ verify_ssl = true
 [dev-packages]
 bump2version = "*"
 flit = "*"
+nox = "*"
 pre-commit = "*"
 towncrier = "*"
 
