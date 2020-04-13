@@ -4,7 +4,7 @@ from distutils.core import setup
 
 setup(
     name="BoozeLib",
-    version="0.4.0",
+    version="0.4.1",
     author="Brutus",
     author_email="brutus.dmc@googlemail.com",
     description=(

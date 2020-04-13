@@ -2,7 +2,7 @@
 boozelib
 ========
 
-**VERSION**: ``0.4.0``
+**VERSION**: ``0.4.1``
 
 A Python module containing a couple of functions to calculate the
 *blood alcohol content* of people.
