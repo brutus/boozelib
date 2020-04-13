@@ -24,6 +24,9 @@ Documentation = "https://boozelib.readthedocs.org/"
 [tool.ward]
 path = ["tests"]
 
+[tool.black]
+target-version = ["py27"]
+
 [tool.flakehell]
 max_line_length = 88
 exclude = [".nox/*"]
