@@ -21,6 +21,9 @@ classifiers = [
 [tool.flit.metadata.urls]
 Documentation = "https://boozelib.readthedocs.org/"
 
+[tool.ward]
+path = ["tests"]
+
 [tool.towncrier]
 filename = "CHANGELOG.rst"
 directory = "changes"
