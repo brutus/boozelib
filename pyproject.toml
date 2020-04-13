@@ -1,3 +1,26 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "boozelib"
+author = "Brutus"
+author-email = "brutus.dmc@googlemail.com"
+home-page = "https://github.com/brutus/boozelib"
+description-file = "README.rst"
+classifiers = [
+	"Intended Audience :: Developers",
+	"Intended Audience :: Healthcare Industry",
+	"Natural Language :: English",
+	"Programming Language :: Python",
+	"Topic :: Software Development :: Libraries :: Python Modules",
+	"Development Status :: 5 - Production/Stable",
+	"License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+]
+
+[tool.flit.metadata.urls]
+Documentation = "https://boozelib.readthedocs.org/"
+
 [tool.towncrier]
 filename = "CHANGELOG.rst"
 directory = "changes"
