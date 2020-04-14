@@ -1,26 +1,28 @@
-.. boozelib documentation master file, created by
-   sphinx-quickstart on Tue Apr 17 20:25:45 2012.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 ========
 boozelib
 ========
 
 A Python module containing a couple of functions to calculate the
-*blood alcohol content* of people.
+**blood alcohol content** of people.
 
-It's at home at GitHub: https://github.com/brutus/boozelib/
-
-Contents
-========
+It's at home at https://github.com/brutus/boozelib/
 
 .. toctree::
-   :maxdepth: 2
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
 
    install
    functions
    formulas
+
+Install
+=======
+
+You can install it from `PyPi`_, it is known as ``boozelib`` and has no
+dependencies::
+
+    pip install --user boozelib
 
 Functions
 =========
@@ -34,19 +36,25 @@ The two main functions are:
    :noindex:
 
 You can browse the full :doc:`documentation<functions>` online. Or you can get
-help with ``pydoc boozelib``, if you already got **boozelib** installed.
+help with ``pydoc boozelib``, if you already got *boozelib* installed.
 
 Examples
 --------
 
->>> from boozelib import get_blood_alcohol_content, get_degradation
->>> get_blood_alcohol_content(32, 96, 186, False, 500, 4.9)
+>>> from boozelib import get_blood_alcohol_content
+>>> get_blood_alcohol_content(
+...   age=32, weight=96, height=186, sex=False, volume=500, percent=4.9
+... )
 0.28773587455687716
->>> get_blood_alcohol_content(32, 48, 162, True, 500, 4.9)
+>>> get_blood_alcohol_content(
+...   age=32, weight=48, height=162, sex=True, volume=500, percent=4.9
+... )
 0.5480779730398769
->>> get_degradation(32, 96, 186, False, 60)
+
+>>> from boozelib import get_degradation
+>>> get_degradation(age=32, weight=96, height=186, sex=False, minutes=60)
 0.21139778538872606
->>> get_degradation(32, 48, 162, True, 60)
+>>> get_degradation(age=32, weight=48, height=162, sex=True, minutes=60)
 0.20133476560648536
 
 Thanks and Contributions
@@ -58,4 +66,4 @@ Thanks and Contributions
 If you find any bugs, issues or anything, please use the `issue tracker`_ on
 GitHub.
 
-.. _`issue tracker`: https://github.com/brutus/boozelib/issues/
+.. include:: includes/links.rst

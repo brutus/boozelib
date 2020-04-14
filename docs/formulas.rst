@@ -1,11 +1,13 @@
 Used Formulas
 =============
 
-Note: The following documentation of the used formulars is in german... Sorry,
-but I'm too laszy to translate them right now. ``:(`` Google around
-**Widmark** and **Watson** for starters.
+Wir errechnen die Blut Alkohol Konzentration (BAK) in Gramm pro Kilogramm…
 
-Wir errechnen die Blut Alkohol Konzentration (BAK) in Gramm pro Kilogramm.
+.. note::
+
+  The following documentation of the used formulars is in german... Sorry,
+  but I'm too laszy to translate them right now. ``:(`` Google around
+  **Widmark** and **Watson** for starters.
 
 Variablen und Konstanten
 ------------------------

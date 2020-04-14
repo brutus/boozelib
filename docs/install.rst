@@ -1,67 +1,35 @@
-Install
-=======
+=====
+Setup
+=====
 
-You can install **boozelib** with pip_ or from source.
+You can install it from `PyPi`_, it is known as ``boozelib`` and has no
+dependencies::
 
-Install with pip
-----------------
+    pip install --user boozelib
 
-pip_ is "*a tool for installing and managing Python packages*". If you have it
-installed, simply get **boozelib** like this:
+Development Setup
+=================
 
-Install system wide:
+`pipenv`_ is used to manage a *virtual environment* for the development setup.
 
-  ``sudo pip install boozelib``
+A ``Makefile`` is provided, that collects some common tasks. You have to run
+the following **once**, to setup your environment::
 
-Install only for the current user:
-
-  ``pip install --user boozelib``
-
-Install pip
-~~~~~~~~~~~
-
-If you don't have pip_ installed yet, you can get it with these two commands:
-
-  ``$ sudo curl http://python-distribute.org/distribute_setup.py | python``
-
-  ``$ sudo curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | python``
-
-Install from source
--------------------
-
-You can fetch the latest sourceball_ from github and unpack it, or just clone
-the repository: ``git clone git://github.com/brutus/boozelib.git``. If you got
-the source, change into the directory and use ``setup.py``:
-
-Install system wide:
-
-  ``sudo python setup.py install``
-
-Install only for the current user:
-
-  ``python setup.py install --user``
+    make setup
 
 Testing
 =======
 
-There are some doctes in the module, you can run them like::
+`nox`_ is used as a test runner (with `ward`_ as the framework). So you need
+to have ``nox`` installed, before you can run the test suit like this::
 
-	python -m doctest src/boozelib.py
+    nox
 
-If you want to run the test cases, see that you got nose_ installed and run
-``nosetests`` from the ``boozelib`` directory (the one containing the module).
-If you got **boozelib** already installed, run them like this: ``nosetest
-test_boozelib``
+If you already have the *development environment* activated (see below), you
+can skip the install and just run::
+
+    make tests
 
 If something fails, please get in touch.
 
-Install nose
-------------
-
-You can install nose_ with pip_ ``sudo pip install nose`` or propably also
-trough your OS package management, eg: ``sudo apt-get install python-nose`` or
-the like.
-
-.. _nose: http://readthedocs.org/docs/nose/en/latest/testing.html
-.. _pip: http://www.pip-installer.org/en/latest/index.html
-.. _sourceball: https://github.com/brutus/boozelib/zipball/master
+.. include:: includes/links.rst

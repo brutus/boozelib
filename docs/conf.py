@@ -24,7 +24,7 @@ release = "v0.4.1"
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = []
+extensions = ["sphinx.ext.autodoc", "sphinx.ext.todo", "sphinx.ext.viewcode"]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -45,7 +45,6 @@ html_theme_options = {
     "display_version": True,
     "prev_next_buttons_location": "bottom",
     "style_external_links": True,
-    "style_nav_header_background": "white",
     # Toc options
     "collapse_navigation": True,
     "sticky_navigation": True,
