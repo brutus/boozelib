@@ -30,7 +30,8 @@ repos:
     hooks:
       - id: reorder-python-imports
         args:
-          - "--application-directories=.:src"
+          - "--application-directories=.:src:tests"
+          - "--separate-relative"
   # Python: black
   - repo: https://github.com/psf/black
     rev: stable
