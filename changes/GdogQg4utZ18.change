@@ -1,1 +1,0 @@
-Use `pytest <https://docs.pytest.org/>`_ instead of `ward`_ (mostly to check Python 2.7).

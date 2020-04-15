@@ -20,9 +20,9 @@ docs:
 	cd docs && pipenv run make html && cd -
 
 .PHONY: change
-change: issue ?= $(shell < /dev/urandom tr -dc A-Za-z0-9 | head -c12)
+change: issue ?= _$(shell < /dev/urandom tr -dc A-Za-z0-9 | head -c9)
 change: type ?= feature
-change: change_file := changes/$(issue).$(type)
+change: change_file := changes/$(issue).$(type).md
 change:
 	touch $(change_file)
 	$(EDITOR) $(change_file)

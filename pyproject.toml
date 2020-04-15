@@ -47,10 +47,12 @@ exclude = [".nox/*"]
 pyflakes = ["+*"]
 
 [tool.towncrier]
-filename = "CHANGELOG.rst"
 directory = "changes"
+filename = "CHANGELOG.md"
+template = "changes/template.j2"
 title_format = "{version} ({project_date})"
-issue_format = "`#{issue} <https://github.com/brutus/boozelib/issues/{issue}>`_"
+issue_format = "[#{issue}](https://github.com/brutus/boozelib/issues/{issue})"
+wrap = true
 
 # TOWNCRIER TYPES: feature, change, removal, fix, misc
 [[tool.towncrier.type]]

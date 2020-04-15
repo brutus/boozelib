@@ -1,0 +1,38 @@
+{% for section in sections %}
+{% set underline = underlines[0] %}
+{% if section %}
+{# section header #}
+{{ section }}
+{{ underline * section|length }}
+
+{% set underline = underlines[1] %}
+{% endif %}
+{% if sections[section] %}
+{% for category in definitions if category in sections[section] %}
+{# category header #}
+{{ definitions[category]['name'] }}
+{{ underline * definitions[category]['name']|length }}
+{% if definitions[category]['showcontent'] %}
+{% for text, values in sections[section][category].items() %}
+{# change #}
+{% set issues = values|join(', ') %}
+- {{ text }}{% if issues[2] != '_'  %} ({{ issues }}){% endif %}
+
+{% endfor %}
+{% else %}
+{# changes with no content #}
+- {{ sections[section][category]['']|join(', ') }}
+
+{% endif %}
+
+{% if sections[section][category]|length == 0 %}
+{# empty category #}
+No significant changes.
+{% else %}
+{% endif %}
+{% endfor %}
+{% else %}
+{# empty section #}
+No significant changes.
+{% endif %}
+{% endfor %}
