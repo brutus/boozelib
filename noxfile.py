@@ -3,6 +3,8 @@ from pathlib import Path
 import nox
 
 
+PYTHON_VERSIONS = ["2.7", "3.6", "3.7", "3.8"]
+
 SOURCE_DIRECTORY = "src"
 TEST_DIRECTORY = "tests"
 
@@ -16,45 +18,42 @@ PYTHON_FILES = [
     str(p) for p in PYTHON_FILES_SOURCE + PYTHON_FILES_TEST + PYTHON_FILES_EXTRA
 ]
 
+TOOLS_LINT = [
+    "black",
+    "flakehell",
+    "reorder_python_imports",
+]
+
+TOOLS_TEST = [
+    "ward",
+    ".",
+]
+
 nox.options.reuse_existing_virtualenvs = True
 
 
-def check_syntax(session):
-    """ Check Python syntax. """
-    session.install("flakehell")
-    session.run("flakehell", "lint", *PYTHON_FILES)
-
-
 @nox.session
-def check_style(session):
+def lint(session):
     """ Check Python style. """
-    session.install("black")
-    session.run("black", "--check", *PYTHON_FILES)
-
-
-@nox.session
-def check_imports(session):
-    """ Check Python imports. """
-    session.install("reorder_python_imports")
+    session.install(*TOOLS_LINT)
+    # check syntax
+    session.run("flakehell", "lint", *PYTHON_FILES)
+    # check style
+    session.run("black", "--check", "--quiet", *PYTHON_FILES)
+    # check imports
     session.run(
         "reorder-python-imports",
         "--application-directories",
-        ".:src",
+        f".:{SOURCE_DIRECTORY}:{TEST_DIRECTORY}",
+        "--separate-relative",
         "--diff-only",
         *PYTHON_FILES
     )
 
 
-@nox.session
-def doc_tests(session):
-    """ Run all integration tests. """
+@nox.session(python=PYTHON_VERSIONS)
+def test(session):
+    """ Run doctests and ward test suit. """
+    session.install(*TOOLS_TEST)
     session.run("python", "-m", "doctest", *(str(p) for p in PYTHON_FILES_SOURCE))
-
-
-@nox.session
-def integration_tests(session):
-    """ Run all integration tests. """
-    session.install("ward")
-    session.install("flit")
-    session.run("flit", "install", "--symlink")
-    session.run("ward", "--tags", "integration")
+    session.run("ward")
