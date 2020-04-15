@@ -4,7 +4,7 @@ SRCDIR=src
 setup:
 	pipenv sync --dev
 	pipenv clean
-	pipenv run flit install --symlink
+	pipenv run flit install --symlink --deps none
 	pipenv run pre-commit install --overwrite --install-hooks
 
 .PHONY: lint

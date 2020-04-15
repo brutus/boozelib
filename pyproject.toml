@@ -21,6 +21,21 @@ classifiers = [
 [tool.flit.metadata.urls]
 Documentation = "https://boozelib.readthedocs.org/"
 
+[tool.flit.metadata.requires-extra]
+test = [
+	"nox",
+]
+doc = [
+	"sphinx",
+	"sphinx-rtd-theme"
+]
+dev = [
+	"bump2version",
+	"flit",
+	"pre-commit",
+	"towncrier",
+]
+
 [tool.ward]
 path = ["tests"]
 
@@ -40,7 +55,7 @@ directory = "changes"
 title_format = "{version} ({project_date})"
 issue_format = "`#{issue} <https://github.com/brutus/boozelib/issues/{issue}>`_"
 
-# types: feature, change, removal, fix, misc
+# TOWNCRIER TYPES: feature, change, removal, fix, misc
 [[tool.towncrier.type]]
 directory = "feature"
 name = "Features"
