@@ -36,9 +36,6 @@ dev = [
 	"towncrier",
 ]
 
-[tool.ward]
-path = ["tests"]
-
 [tool.black]
 target-version = ["py27"]
 

@@ -35,9 +35,6 @@ The two main functions are:
 .. autofunction:: boozelib.get_degradation
    :noindex:
 
-You can browse the full :doc:`documentation<functions>` online. Or you can get
-help with ``pydoc boozelib``, if you already got *boozelib* installed.
-
 Examples
 --------
 

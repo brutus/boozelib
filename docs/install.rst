@@ -20,7 +20,7 @@ the following **once**, to setup your environment::
 Testing
 =======
 
-`nox`_ is used as a test runner (with `ward`_ as the framework). So you need
+`nox`_ is used as a test runner (with `pytest`_ as the framework). So you need
 to have ``nox`` installed, before you can run the test suit like this::
 
     nox

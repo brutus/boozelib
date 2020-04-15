@@ -63,7 +63,7 @@ Examples
 Testing
 =======
 
-`nox`_ is used as a test runner (with `ward`_ as the framework). So you need
+`nox`_ is used as a test runner (with `pytest`_ as the framework). So you need
 to have ``nox`` installed, before you can run the test suit like this::
 
     nox
@@ -95,9 +95,9 @@ If you find any bugs, issues or anything, please use the `issue tracker`_ on
 GitHub - issues and PRs are welcome <3
 
 .. _`documentation`: https://boozelib.readthedocs.org/
-.. _`formulas`: https://boozelib.readthedocs.org/en/latest/formulas.html
+.. _`formulas`: https://boozelib.readthedocs.org/en/latest/background.html
 .. _`issue tracker`: https://github.com/brutus/boozelib/issues
 .. _`nox`: https://nox.thea.codes/
 .. _`pipenv`: https://pipenv.pypa.io/
 .. _`pypi`: https://pypi.org/project/BoozeLib/
-.. _`ward`: https://wardpy.com/
+.. _`pytest`: https://docs.pytest.org/

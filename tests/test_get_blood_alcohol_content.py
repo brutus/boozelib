@@ -1,19 +1,23 @@
-from ward import each
-from ward import test
+import pytest
 
 from boozelib import get_blood_alcohol_content
-from tests.fixtures import drink_beer
-from tests.fixtures import drink_vodka
-from tests.fixtures import user_emma
-from tests.fixtures import user_paul
+
+from .conftest import drink_beer
+from .conftest import drink_vodka
+from .conftest import user_emma
+from .conftest import user_paul
 
 
-@test("case for `get_blood_alcohol_content`: {user} → {drink}", tags=["integration"])
-def _(
-    user=each(user_emma, user_emma, user_paul, user_paul),
-    drink=each(drink_beer, drink_vodka, drink_beer, drink_vodka),
-    exp=each("0.5971369378", "0.9749174495", "0.2761707407", "0.4508910053"),
-):
-    res = get_blood_alcohol_content(**vars(user), **vars(drink))
+@pytest.mark.parametrize(
+    "user,drink,exp",
+    [
+        (user_emma, drink_beer, "0.5971369378"),
+        (user_emma, drink_vodka, "0.9749174495"),
+        (user_paul, drink_beer, "0.2761707407"),
+        (user_paul, drink_vodka, "0.4508910053"),
+    ],
+)
+def test_get_blood_alcohol_content(user, drink, exp):
+    res = get_blood_alcohol_content(**dict(user, **drink))
     assert isinstance(res, float)
-    assert str(res).startswith(exp), f"not equal enough:\n-{res}\n+{exp}"
+    assert res, exp

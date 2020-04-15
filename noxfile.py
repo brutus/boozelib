@@ -25,7 +25,7 @@ TOOLS_LINT = [
 ]
 
 TOOLS_TEST = [
-    "ward",
+    "pytest",
     ".",
 ]
 
@@ -56,4 +56,4 @@ def test(session):
     """ Run doctests and ward test suit. """
     session.install(*TOOLS_TEST)
     session.run("python", "-m", "doctest", *(str(p) for p in PYTHON_FILES_SOURCE))
-    session.run("ward")
+    session.run("pytest", *session.posargs)
