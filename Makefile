@@ -47,7 +47,7 @@ release:
 	@echo "bump $(part) => $(version) -> $(new)"
 	pipenv run towncrier --yes --version '$(new)'
 	git commit -m ':pencil: add CHANGELOG for $(new)' --no-verify
-	pipenv run bumpversion '$(part)'
+	pipenv run bumpversion '$(part)' --commit-args='--no-verify'
 
 .PHONY: publish
 publish:
