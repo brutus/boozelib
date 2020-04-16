@@ -61,9 +61,7 @@ __license__ = (
 __all__ = (
     "calculate_alcohol",
     "calculate_body_water",
-    "calculate_bw",
     "calculate_degradation",
-    "get_bac",
     "get_blood_alcohol_content",
     "get_degradation",
     "gramm_to_promille",
@@ -92,9 +90,6 @@ def calculate_body_water(age, weight, height, sex):
         return 0.203 - (0.07 * age) + (0.1069 * height) + (0.2466 * weight)
     else:  # male
         return 2.447 - (0.09516 * age) + (0.1074 * height) + (0.3362 * weight)
-
-
-calculate_bw = calculate_body_water  # for compatibillity (<0.4.2)
 
 
 def promille_to_gramm(promille, age, weight, height, sex):
@@ -129,9 +124,6 @@ def get_blood_alcohol_content(age, weight, height, sex, volume, percent):
     return gramm_to_promille(
         calculate_alcohol(volume, percent), age, weight, height, sex
     )
-
-
-get_bac = get_blood_alcohol_content  # for compatibillity (<0.4.2)
 
 
 def get_degradation(age, weight, height, sex, minutes):
