@@ -61,7 +61,9 @@ __license__ = (
 __all__ = (
     "calculate_alcohol",
     "calculate_body_water",
+    "calculate_bw",
     "calculate_degradation",
+    "get_bac",
     "get_blood_alcohol_content",
     "get_degradation",
     "gramm_to_promille",
@@ -129,7 +131,7 @@ def get_blood_alcohol_content(age, weight, height, sex, volume, percent):
     )
 
 
-get_blood_alcohol_content = get_blood_alcohol_content  # for compatibillity (<0.4.2)
+get_bac = get_blood_alcohol_content  # for compatibillity (<0.4.2)
 
 
 def get_degradation(age, weight, height, sex, minutes):
