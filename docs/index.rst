@@ -13,8 +13,8 @@ It's at home at https://github.com/brutus/boozelib/
    :hidden:
 
    install
-   functions
-   formulas
+   modul
+   background
 
 Install
 =======
