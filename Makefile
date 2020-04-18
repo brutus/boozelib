@@ -11,13 +11,23 @@ setup:
 lint:
 	pipenv run pre-commit run -a
 
-.PHONY: tests
-tests:
+.PHONY: test tests
+test tests:
 	pipenv run nox
 
 .PHONY: docs
 docs:
-	cd docs && pipenv run make html && cd -
+	cd docs \
+		&& pipenv run make html \
+		&& cd -
+
+.PHONY: docs-server
+docs-server: ip ?= 127.0.0.1
+docs-server: port ?= 60666
+docs-server:
+	cd docs/_build/html \
+		&& python -m http.server --bind "$(ip)" "$(port)" \
+		&& cd -
 
 .PHONY: change
 change: issue ?= _$(shell < /dev/urandom tr -dc A-Za-z0-9 | head -c9)
