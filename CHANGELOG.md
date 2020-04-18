@@ -13,6 +13,22 @@ You can find the **issue tracker** at:
 
 .. towncrier release notes start
 
+0.5.0 (2020-04-18)
+==================
+
+This will be the **last version** supporting Python `>=2.7`.
+
+Features
+--------
+- Test all supported Python versions (`>=2.7`).
+- Add configuration for [Read the Docs](https://readthedocs.org/).
+
+Changes
+-------
+- Use [pytest](https://docs.pytest.org/) instead of [ward](https://wardpy.com/)
+  (mostly to check Python 2.7).
+
+
 0.4.2 (2020-04-14)
 ==================
 
