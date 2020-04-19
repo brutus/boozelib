@@ -1,6 +1,6 @@
 import pytest
 
-from boozelib import get_degradation
+from boozelib import get_blood_alcohol_degradation
 
 from .conftest import user_emma
 from .conftest import user_komathy
@@ -17,7 +17,7 @@ from .conftest import user_tyrice
         (user_paul, 60, "0.217695813527"),
     ],
 )
-def test_get_degradation(user, minutes, exp):
-    res = get_degradation(minutes=minutes, **user)
+def test_get_blood_alcohol_degradation(user, minutes, exp):
+    res = get_blood_alcohol_degradation(minutes=minutes, **user)
     assert isinstance(res, float)
     assert res, exp
