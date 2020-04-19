@@ -25,7 +25,7 @@ to have ``nox`` installed, before you can run the test suit like this::
 
     nox
 
-If you already have the *development environment* activated (see below), you
+If you already have the *development environment* activated (see above), you
 can skip the install and just run::
 
     make tests

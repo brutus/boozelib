@@ -24,14 +24,19 @@ The two main functions are:
 
 * ``get_blood_alcohol_content(age, weight, height, sex, volume, percent)``
 
-  Returns the **Blood Alcohol Content** (raise) for a person (described by the
-  given attributes) after a drink containing *volume* ml of alcohol with the
-  given *percent* (vol/vol).
+    Return the **blood alcohol contents** raise (per mill) for a person after a
+    drink.
 
-* ``get_degradation(age, weight, height, sex, minutes)``
+    Given a drink containing *volume* (ml) of alcohol with the *percent*
+    (vol/vol), for a person with *age* (years), *weight* (kg) and *height* (cm),
+    using the formular for "female body types" if *sex* is true.
 
-  Returns the **alcohol degradation** (per mill) of a person with the given
-  stats in the given number of *minutes*.
+* ``get_blood_alcohol_degradation(age, weight, height, sex, minutes=1)``
+
+    Return the alcohol degradation (per mill) for a person over *minutes*.
+
+    For a person with *age* (years), *weight* (kg) and *height* (cm), using the
+    formular for "female body types" if *sex* is true, over the given *minutes*.
 
 See the `documentation`_ for more information and other probably helpful stuff.
 If you're interested in the used formulas, see the source or browse the
@@ -52,12 +57,16 @@ Examples
 ... )
 0.5480779730398769
 
->>> from boozelib import get_degradation
+>>> from boozelib import get_blood_alcohol_degradation
 
->>> get_degradation(age=32, weight=96, height=186, sex=False, minutes=60)
+>>> get_blood_alcohol_degradation(
+... 	age=32, weight=96, height=186, sex=False, minutes=60
+... )
 0.21139778538872606
 
->>> get_degradation(age=32, weight=48, height=162, sex=True, minutes=60)
+>>> get_blood_alcohol_degradation(
+... 	age=32, weight=48, height=162, sex=True, minutes=60
+... )
 0.20133476560648536
 
 Testing
@@ -91,8 +100,8 @@ Thanks and Contributions
 * Big hugs to Mathilda for hanging around and helping me figuring out all
   that math and biology stuff.
 
-If you find any bugs, issues or anything, please use the `issue tracker`_ on
-GitHub - issues and PRs are welcome <3
+If you find bugs, issues or anything else, please use the `issue tracker`_ on
+GitHub. Issues and PRs are welcome ❤️
 
 .. _`documentation`: https://boozelib.readthedocs.org/
 .. _`formulas`: https://boozelib.readthedocs.org/en/latest/background.html

@@ -32,7 +32,7 @@ The two main functions are:
 .. autofunction:: boozelib.get_blood_alcohol_content
    :noindex:
 
-.. autofunction:: boozelib.get_degradation
+.. autofunction:: boozelib.get_blood_alcohol_degradation
    :noindex:
 
 Examples
@@ -48,10 +48,14 @@ Examples
 ... )
 0.5480779730398769
 
->>> from boozelib import get_degradation
->>> get_degradation(age=32, weight=96, height=186, sex=False, minutes=60)
+>>> from boozelib import get_blood_alcohol_degradation
+>>> get_blood_alcohol_degradation(
+... 	age=32, weight=96, height=186, sex=False, minutes=60
+... )
 0.21139778538872606
->>> get_degradation(age=32, weight=48, height=162, sex=True, minutes=60)
+>>> get_blood_alcohol_degradation(
+... 	age=32, weight=48, height=162, sex=True, minutes=60
+... )
 0.20133476560648536
 
 Thanks and Contributions
