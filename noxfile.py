@@ -21,6 +21,7 @@ PYTHON_FILES = [
 TOOLS_LINT = [
     "black",
     "flakehell",
+    "mypy",
     "reorder_python_imports",
 ]
 
@@ -38,6 +39,8 @@ def lint(session):
     session.install(*TOOLS_LINT)
     # check syntax
     session.run("flakehell", "lint", *PYTHON_FILES)
+    # check types
+    session.run("mypy", SOURCE_DIRECTORY)
     # check style
     session.run("black", "--check", "--quiet", *PYTHON_FILES)
     # check imports
