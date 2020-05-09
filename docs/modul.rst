@@ -4,9 +4,10 @@ Modul Documentation
 Constants
 ---------
 
-.. autodata:: boozelib.PA
-.. autodata:: boozelib.PB
-.. autodata:: boozelib.W
+.. autodata:: boozelib.ALCOHOL_DENSITY
+.. autodata:: boozelib.BLOOD_DENSITY
+.. autodata:: boozelib.WATER_IN_BLOOD
+.. autodata:: boozelib.ALCOHOL_DEGRADATION
 
 Functions
 ---------

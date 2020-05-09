@@ -78,9 +78,10 @@ __all__ = (
 )
 
 
-PA: float = 0.8  #: density of alcohol (g/ml)
-PB: float = 1.055  #: density of blood (g/cm^3)
-W: float = 0.8  #: parts of water in blood (%)
+ALCOHOL_DENSITY: float = 0.8  #: density of alcohol (g/ml)
+BLOOD_DENSITY: float = 1.055  #: density of blood (g/ml)
+WATER_IN_BLOOD: float = 0.8  #: parts of water in blood (%)
+ALCOHOL_DEGRADATION: float = 0.0025  #: for kg body weight per minute (g)
 
 
 def calculate_alcohol_weight(*, volume: int, percent: float) -> float:
@@ -89,7 +90,7 @@ def calculate_alcohol_weight(*, volume: int, percent: float) -> float:
     Given a drink with a *volume* (ml) containing *percent* (vol/vol) alcohol.
 
     """
-    return PA * volume * (percent / 100)
+    return ALCOHOL_DENSITY * volume * (percent / 100)
 
 
 def calculate_alcohol_degradation(*, weight: int, minutes: int = 1) -> float:
@@ -98,7 +99,7 @@ def calculate_alcohol_degradation(*, weight: int, minutes: int = 1) -> float:
     For a person with *weight* (in kg) over the given *minutes*.
 
     """
-    return 0.0025 * weight * minutes
+    return ALCOHOL_DEGRADATION * weight * minutes
 
 
 def calculate_body_water(age: int, weight: int, height: int, sex: bool) -> float:
@@ -119,7 +120,7 @@ def promille_to_gramm(*, promille: float, body_water: float) -> float:
         and *body water* (in liter).
 
     """
-    return (promille * (PB * body_water)) / W
+    return (promille * (BLOOD_DENSITY * body_water)) / WATER_IN_BLOOD
 
 
 def gramm_to_promille(*, gramm: float, body_water: float) -> float:
@@ -127,7 +128,7 @@ def gramm_to_promille(*, gramm: float, body_water: float) -> float:
         and *body water* (in liter).
 
     """
-    return (gramm * W) / (PB * body_water)
+    return (gramm * WATER_IN_BLOOD) / (BLOOD_DENSITY * body_water)
 
 
 def get_blood_alcohol_content(
