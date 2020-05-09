@@ -1,63 +1,59 @@
 Used Formulas
 =============
 
-Wir errechnen die Blut Alkohol Konzentration (BAK) in Gramm pro Kilogramm…
+We used the formulars from **Widmark** and **Watson** — with the modification
+by **Eicker** (for the female blood alcohol content) — to calcualte the
+*blood alcohol content* and *alcohol degradation* in this module.
 
-.. note::
+Variables and Constants
+-----------------------
 
-  The following documentation of the used formulars is in german... Sorry,
-  but I'm too laszy to translate them right now. ``:(`` Google around
-  **Widmark** and **Watson** for starters.
-
-Variablen und Konstanten
-------------------------
-
-| ``pa`` = Dichte von Alkohol (g/ml) = 0.8
-| ``pb`` = Dichte von Blut (g/cm\ :sup:`3`) = 1.055
-| ``w`` = Anteil von Wasser im Blut (%) = 0.8
+| ``pa`` = Density of alcohol (g/ml) = 0.8
+| ``pb`` = Density of blood (g/ml) = 1.055
+| ``w`` = Parts water in blood (%) = 0.8
 |
-| ``v`` = Volumen des Getraenks (ml)
-| ``e`` = Alkoholanteil des Getraenks (:sup:`v`/:sub:`v`)
+| ``v`` = Volume of the drink (ml)
+| ``e`` = Alcohol concentration in the drink (:sup:`v`/:sub:`v`)
 |
-| ``t`` = Alter in Jahren
-| ``h`` = Groesse in cm
-| ``m`` = Gewicht in kg
+| ``t`` = Age (in years)
+| ``h`` = Height (in cm)
+| ``m`` = Weight (in kg)
 
 Widmark-Formel
 --------------
 
-Blut Alkohol Konzentration (BAK) => **c**
+Blood Alcohol Concentration (BAC) => **c**
 
 ``c = A / (m * r)``
 
-Aufgenommene Masse des Alkohols in Gramm => **A**
+Mass of alcohol intake (in gramm) => **A**
 
 ``A = V * e * pa``
 
-Reduktionsfaktor => **r**
+Factor for alcohol degradation "_Reduktionsfaktor_" (by sex) => **r**
 
 * male: ``r = 0,7``
 * female: ``r = 0,6``
 
-Watson-Ergaenzung
-~~~~~~~~~~~~~~~~~
+Watson-Addition
+~~~~~~~~~~~~~~~
 
-Reduktionsfaktor => **r**
+_Reduktionsfaktor_ => **r**
 
 ``r = (pb * kw) / (w * m)``
 
-Gesamtkoerperwasser (nach Geschlecht) => **kw**
+Water in the body (by sex) => **kw**
 
 * male ``kw = 2,447 - (0,09516 * t) + (0,1074 * h) + (0,3362 * m)``
 * female ``kw = 0,203 - (0,07 * t)    + (0,1069 * h) + (0,2466 * m)``
 
-Zusammengefasst
-~~~~~~~~~~~~~~~
+Combined
+~~~~~~~~
 
 ``c = (pa * v * e * w) / (pb * kw)``
 
-Finale Formel
-~~~~~~~~~~~~~
+Final Formel
+~~~~~~~~~~~~
 
 * male: ``(pa * v * e * w) / (pb * (2,447 - (0,09516 * t) + (0,1074 * h) + (0,3362 * m)))``
 

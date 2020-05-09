@@ -7,14 +7,17 @@ setup:
 
 .PHONY: lint
 lint:
-	poetry run pre-commit run -a
+	poetry run pre-commit run --all-files
 
 .PHONY: test tests
 test tests:
 	poetry run nox
 
 .PHONY: docs
-docs:
+docs: docs-build docs-server
+
+.PHONY: docs-build
+docs-build:
 	cd docs \
 		&& poetry run make html \
 		&& cd -
