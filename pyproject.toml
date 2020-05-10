@@ -1,13 +1,20 @@
 [build-system]
-requires = ["flit_core >=2,<4"]
-build-backend = "flit_core.buildapi"
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
 
-[tool.flit.metadata]
-module = "boozelib"
-author = "Brutus"
-author-email = "brutus.dmc@googlemail.com"
-home-page = "https://github.com/brutus/boozelib"
-description-file = "README.rst"
+[tool.poetry]
+name = "boozelib"
+version = "0.5.0"
+description = """
+A Python module containing a couple of tools to calculate the \
+blood alcohol content of people.
+"""
+authors = ["Brutus <brutus.dmc@googlemail.com>"]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+homepage = "https://github.com/brutus/boozelib/"
+repository = "https://github.com/brutus/boozelib/"
+documentation = "https://boozelib.readthedocs.org/"
 classifiers = [
 	"Intended Audience :: Developers",
 	"Intended Audience :: Healthcare Industry",
@@ -18,22 +25,18 @@ classifiers = [
 	"License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
 ]
 
-[tool.flit.metadata.urls]
-Documentation = "https://boozelib.readthedocs.org/"
+[tool.poetry.dependencies]
+python = ">=3.8"
+bump2version = {version = "^1.0.0", optional = true}
+pre-commit = {version = "^2.3.0", optional = true}
+towncrier = {version = "^19.2.0", optional = true}
+sphinx = {version = "^3.0.3", optional = true}
+nox = {version = "^2019.11.9", optional = true}
 
-[tool.flit.metadata.requires-extra]
-test = [
-	"nox",
-]
-doc = [
-	"sphinx",
-]
-dev = [
-	"bump2version",
-	"flit",
-	"pre-commit",
-	"towncrier",
-]
+[tool.poetry.extras]
+dev = [ "bump2version", "pre-commit", "towncrier" ]
+doc = [ "sphinx" ]
+test = [ "nox" ]
 
 [tool.black]
 target-version = ["py36"]
