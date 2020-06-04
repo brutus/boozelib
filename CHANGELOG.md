@@ -14,7 +14,7 @@ You can find the **issue tracker** at:
 
 # 0.5.0 (2020-04-18)
 
-This will be the **last version** supporting Python `>=2.7`.
+This will be the **last version** supporting Python `2.7`.
 
 ## Features
 
