@@ -42,26 +42,27 @@ The two main functions are:
 >>> from boozelib import get_blood_alcohol_content
 
 >>> get_blood_alcohol_content(
->>> ... age=32, weight=96, height=186, sex=False, volume=500, percent=4.9
->>> ... )
->>> 0.28773587455687716
+... 	age=32, weight=96, height=186, sex=False, volume=500, percent=4.9
+... )
+0.28773587455687716
 
 >>> get_blood_alcohol_content(
->>> ... age=32, weight=48, height=162, sex=True, volume=500, percent=4.9
->>> ... )
->>> 0.5480779730398769
+... 	age=32, weight=48, height=162, sex=True, volume=500, percent=4.9
+... )
+0.5480779730398769
 
 >>> from boozelib import get_blood_alcohol_degradation
 
 >>> get_blood_alcohol_degradation(
->>> ... age=32, weight=96, height=186, sex=False, minutes=60
->>> ... )
->>> 0.21139778538872606
+... 	age=32, weight=96, height=186, sex=False, minutes=60
+... )
+0.21139778538872606
 
 >>> get_blood_alcohol_degradation(
->>> ... age=32, weight=48, height=162, sex=True, minutes=60
->>> ... )
->>> 0.20133476560648536
+... 	age=32, weight=48, height=162, sex=True, minutes=60
+... )
+0.20133476560648536
+
 ```
 
 ## Documentation
