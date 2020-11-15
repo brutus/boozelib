@@ -102,7 +102,7 @@ def calculate_alcohol_degradation(*, weight: int, minutes: int = 1) -> float:
     return ALCOHOL_DEGRADATION * weight * minutes
 
 
-def calculate_body_water(age: int, weight: int, height: int, sex: bool) -> float:
+def calculate_body_water(*, age: int, weight: int, height: int, sex: bool) -> float:
     """ Return the amount of water (in liter) in a persons body.
 
     For a person with *age* (years), *weight* (kg) and *height* (cm), using
