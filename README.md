@@ -90,7 +90,7 @@ If something fails, please get in touch.
 
 # Development Setup
 
-[pipenv] is used to manage a _virtual environment_ for the development setup.
+[Poetry] is used to manage a _virtual environment_ for the development setup.
 
 A `Makefile` is provided, that collects some common tasks. You have to run
 the following **once**, to setup your environment:
@@ -111,6 +111,6 @@ GitHub. Issues and PRs are welcome ❤️
 [formulas]: https://boozelib.readthedocs.org/en/latest/background.html
 [issue tracker]: https://github.com/brutus/boozelib/issues
 [nox]: https://nox.thea.codes/
-[pipenv]: https://pipenv.pypa.io/
+[poetry]: https://python-poetry.org/
 [pypi]: https://pypi.org/project/BoozeLib/
 [pytest]: https://docs.pytest.org/
