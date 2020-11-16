@@ -72,7 +72,7 @@ See the source or the [documentation] for more information and the used
 
 # Testing
 
-[nox] is used as a test runner (with [pytest] as the framework). So you need
+[nox] is used as a test runner (with [ward] as the framework). So you need
 to have `nox` installed, before you can run the test suit like this:
 
 ```shell
@@ -113,4 +113,4 @@ GitHub. Issues and PRs are welcome ❤️
 [nox]: https://nox.thea.codes/
 [poetry]: https://python-poetry.org/
 [pypi]: https://pypi.org/project/BoozeLib/
-[pytest]: https://docs.pytest.org/
+[ward]: https://wardpy.com/

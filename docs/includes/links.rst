@@ -4,4 +4,4 @@
 .. _`nox`: https://nox.thea.codes/
 .. _`pipenv`: https://pipenv.pypa.io/
 .. _`pypi`: https://pypi.org/project/BoozeLib/
-.. _`pytest`: https://docs.pytest.org/
+.. _`ward`: https://wardpy.com/
