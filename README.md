@@ -29,7 +29,7 @@ The two main functions are:
     person with _age_ (years), _weight_ (kg) and _height_ (cm) — using a
     formular for "female body types" if _sex_ is true.
 
--   `get_blood_alcohol_degradation(age, weight, height, sex, minutes=1)`
+-   `get_degradation(age, weight, height, sex, minutes=1)`
 
     Return the **alcohol degradation** (per mill) for a person over _minutes_.
 
@@ -51,14 +51,14 @@ The two main functions are:
 >>> ... )
 >>> 0.5480779730398769
 
->>> from boozelib import get_blood_alcohol_degradation
+>>> from boozelib import get_degradation
 
->>> get_blood_alcohol_degradation(
+>>> get_degradation(
 >>> ... age=32, weight=96, height=186, sex=False, minutes=60
 >>> ... )
 >>> 0.21139778538872606
 
->>> get_blood_alcohol_degradation(
+>>> get_degradation(
 >>> ... age=32, weight=48, height=162, sex=True, minutes=60
 >>> ... )
 >>> 0.20133476560648536
