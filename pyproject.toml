@@ -39,7 +39,7 @@ doc = [ "sphinx" ]
 test = [ "nox" ]
 
 [tool.black]
-target-version = ["py36"]
+target-version = ["py38"]
 
 [tool.flakehell]
 max_line_length = 88
