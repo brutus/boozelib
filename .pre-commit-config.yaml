@@ -3,7 +3,7 @@ default_language_version:
   python: python3.8
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: master
+    rev: v3.4.0
     hooks:
       # Generall Stuff
       - id: trailing-whitespace
@@ -19,19 +19,19 @@ repos:
       - id: debug-statements
   # Python: flakes8 (syntax check with pyflakes only)
   - repo: https://gitlab.com/pycqa/flake8
-    rev: master
+    rev: 3.8.4
     hooks:
       - id: flake8
         args:
           - "--select=F"
   # Python: check type hints
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: master
+    rev: v0.800
     hooks:
       - id: mypy
   # Python: reorder imports
   - repo: https://github.com/asottile/reorder_python_imports
-    rev: master
+    rev: v2.3.6
     hooks:
       - id: reorder-python-imports
         args:
@@ -39,7 +39,7 @@ repos:
           - "--separate-relative"
   # Python: black
   - repo: https://github.com/psf/black
-    rev: stable
+    rev: 20.8b1
     hooks:
       - id: black
         args:
