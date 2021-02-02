@@ -12,6 +12,33 @@ You can find the **issue tracker** at:
 
 <!-- TOWNCRIER -->
 
+## 0.6.0 (2021-02-02)
+
+### Features
+
+- Added Python [type hints](https://docs.python.org/3/library/typing.html).
+- Use [mypy](https://mypy.readthedocs.io/) to check type hints.
+
+### Changes
+
+- Renamed the used constants (use decriptive names).
+- Ported the README to markdown.
+- Switched to [Poetry](https://python-poetry.org/) for packaging (from
+  [Pipenv](https://github.com/pypa/pipenv)).
+- Only accept keyword-arguments for all functions (not positional ones).
+- Switch back to [ward](https://wardpy.com/) as test framework.
+- Translated the background section in the docs.
+- Rename `calculate_alcohol` to `calculate_alcohol_weight`,
+  `calculate_degradation` to `calculate_alcohol_degradation` and
+  `get_degradation` to `get_blood_alcohol_degradation`.
+- Unified function signatures.
+
+### Deprecations and Removals
+
+- Remove deprecated function names (`calculate_bw` and `get_bac`).
+- Remove support for Python `==2.7`.
+
+
 # 0.5.0 (2020-04-18)
 
 This will be the **last version** supporting Python `2.7`.
