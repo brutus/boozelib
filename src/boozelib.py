@@ -85,7 +85,7 @@ ALCOHOL_DEGRADATION: float = 0.0025  #: for kg body weight per minute (g)
 
 
 def calculate_alcohol_weight(*, volume: int, percent: float) -> float:
-    """ Return the amount of alcohol (in gramm) contained in a drink.
+    """Return the amount of alcohol (in gramm) contained in a drink.
 
     Given a drink with a *volume* (ml) containing *percent* (vol/vol) alcohol.
 
@@ -94,7 +94,7 @@ def calculate_alcohol_weight(*, volume: int, percent: float) -> float:
 
 
 def calculate_alcohol_degradation(*, weight: int, minutes: int = 1) -> float:
-    """ Return the alcohol degeneration (in gramm) over time.
+    """Return the alcohol degeneration (in gramm) over time.
 
     For a person with *weight* (in kg) over the given *minutes*.
 
@@ -103,7 +103,7 @@ def calculate_alcohol_degradation(*, weight: int, minutes: int = 1) -> float:
 
 
 def calculate_body_water(*, age: int, weight: int, height: int, sex: bool) -> float:
-    """ Return the amount of water (in liter) in a persons body.
+    """Return the amount of water (in liter) in a persons body.
 
     For a person with *age* (years), *weight* (kg) and *height* (cm), using
     the formular for "female body types" if *sex* is true.
@@ -116,16 +116,16 @@ def calculate_body_water(*, age: int, weight: int, height: int, sex: bool) -> fl
 
 
 def promille_to_gramm(*, promille: float, body_water: float) -> float:
-    """ Return the ammount of alcohol in a persons body (in gramm), given *promille*
-        and *body water* (in liter).
+    """Return the ammount of alcohol in a persons body (in gramm), given *promille*
+    and *body water* (in liter).
 
     """
     return (promille * (BLOOD_DENSITY * body_water)) / WATER_IN_BLOOD
 
 
 def gramm_to_promille(*, gramm: float, body_water: float) -> float:
-    """ Return the blood alcohol contents of a person, given alcohol (in *gramm*)
-        and *body water* (in liter).
+    """Return the blood alcohol contents of a person, given alcohol (in *gramm*)
+    and *body water* (in liter).
 
     """
     return (gramm * WATER_IN_BLOOD) / (BLOOD_DENSITY * body_water)
@@ -134,7 +134,7 @@ def gramm_to_promille(*, gramm: float, body_water: float) -> float:
 def get_blood_alcohol_content(
     *, age: int, weight: int, height: int, sex: bool, volume: int, percent: float
 ) -> float:
-    """ Return the blood alcohol contents raise (per mill) for a person after a drink.
+    """Return the blood alcohol contents raise (per mill) for a person after a drink.
 
     Given a drink containing *volume* (ml) of alcohol with the *percent*
     (vol/vol), for a person with *age* (years), *weight* (kg) and *height* (cm),
@@ -149,7 +149,7 @@ def get_blood_alcohol_content(
 def get_blood_alcohol_degradation(
     *, age: int, weight: int, height: int, sex: bool, minutes: int = 1
 ) -> float:
-    """ Return the alcohol degradation (per mill) for a person over *minutes*.
+    """Return the alcohol degradation (per mill) for a person over *minutes*.
 
     For a person with *age* (years), *weight* (kg) and *height* (cm), using the
     formular for "female body types" if *sex* is true, over the given *minutes*.
