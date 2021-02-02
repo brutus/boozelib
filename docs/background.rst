@@ -30,7 +30,7 @@ Mass of alcohol intake (in gramm) => **A**
 
 ``A = V * e * pa``
 
-Factor for alcohol degradation "_Reduktionsfaktor_" (by sex) => **r**
+Factor for alcohol degradation *"Reduktionsfaktor"* (by sex) => **r**
 
 * male: ``r = 0,7``
 * female: ``r = 0,6``
@@ -38,7 +38,7 @@ Factor for alcohol degradation "_Reduktionsfaktor_" (by sex) => **r**
 Watson-Addition
 ~~~~~~~~~~~~~~~
 
-_Reduktionsfaktor_ => **r**
+*Reduktionsfaktor* => **r**
 
 ``r = (pb * kw) / (w * m)``
 
