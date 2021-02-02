@@ -62,4 +62,4 @@ release:
 
 .PHONY: publish
 publish:
-	poetry publish
+	poetry publish --build
