@@ -7,6 +7,12 @@ A Python module containing a couple of tools to calculate the
 
 It's at home at GitHub: <https://github.com/brutus/boozelib/>.
 
+As a side note: I created this library mainly to have a very simple module to
+try different Python testing and packaging best practice. _This is in no way a
+serious medical approach and also accepts a rather big level of abstraction._
+Depending on your use case, this might be okay; but I would not deem it fit for
+serious health and / or legal stuff 😉 🍻
+
 # Install
 
 You can install it from [PyPi], it is known as `boozelib` and has no
