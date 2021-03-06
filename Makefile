@@ -14,21 +14,10 @@ test tests:
 	poetry run nox
 
 .PHONY: docs
-docs: docs-build docs-server
-
-.PHONY: docs-build
-docs-build:
-	cd docs \
-		&& poetry run make html \
-		&& cd -
-
-.PHONY: docs-server
-docs-server: ip ?= 127.0.0.1
-docs-server: port ?= 60666
-docs-server:
-	cd docs/_build/html \
-		&& python -m http.server --bind "$(ip)" "$(port)" \
-		&& cd -
+docs: ip ?= 127.0.0.1
+docs: port ?= 60666
+docs:
+	poetry run sphinx-autobuild docs docs/_build/html -H "$(ip)" -p "$(port)"
 
 .PHONY: change
 change: issue ?= _$(shell < /dev/urandom tr -dc A-Za-z0-9 | head -c9)
