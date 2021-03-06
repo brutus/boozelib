@@ -2,12 +2,22 @@
 
 Functions to calculate the **blood alcohol content** of people.
 
+Global Variables
+================
+
+This uses some constants and one variable you might want to review:
+
+- :data:`ALCOHOL_DEGRADATION`: the default value for alcohol degradation;
+  meaning the amount of alcohol (in gram) your body is degrading per minute, per
+  kilogram body weight. This is usually a value between ``0.0017`` and
+  ``0.0025`` (about 0.1—0.2 per thousand per hour).
+
 Functions
 =========
 
 The two main functions are:
 
-* ``get_blood_alcohol_content(age, weight, height, sex, volume, percent)``
+- ``get_blood_alcohol_content(age, weight, height, sex, volume, percent)``
 
     Return the **blood alcohol contents** raise (per mill) for a person after a
     drink.
@@ -16,15 +26,21 @@ The two main functions are:
     (vol/vol), for a person with *age* (years), *weight* (kg) and *height* (cm),
     using the formular for "female body types" if *sex* is true.
 
-* ``get_blood_alcohol_degradation(age, weight, height, sex, minutes=1)``
+- ``get_blood_alcohol_degradation(
+        age, weight, height, sex, minutes=1, degradation=None,
+    )``
 
     Return the alcohol degradation (per mill) for a person over *minutes*.
 
     For a person with *age* (years), *weight* (kg) and *height* (cm), using the
     formular for "female body types" if *sex* is true, over the given *minutes*.
+    If *degradation* is not set, :data:`ALCOHOL_DEGRADATION` is used as default.
 
 Examples
 --------
+
+Return the **blood alcohol contents** raise (per mill) for a person after a
+drink:
 
 >>> get_blood_alcohol_content(
 ...     age=32, weight=96, height=186, sex=False, volume=500, percent=4.9
@@ -36,6 +52,8 @@ Examples
 ... )
 0.5480779730398769
 
+And to calculate alcohol degradation:
+
 >>> get_blood_alcohol_degradation(
 ...     age=32, weight=96, height=186, sex=False, minutes=60
 ... )
@@ -45,6 +63,15 @@ Examples
 ...     age=32, weight=48, height=162, sex=True, minutes=60
 ... )
 0.20133476560648536
+
+You can change the default for *alcohol degradation* globally via setting
+:data:`ALCOHOL_DEGRADATION`. Or change the value for *alcohol degradation* per
+call:
+
+>>> get_blood_alcohol_degradation(
+...     age=32, weight=48, height=162, sex=True, minutes=60, degradation=0.002
+... )
+0.16106781248518828
 
 Thanks and Contributions
 ========================
@@ -58,6 +85,7 @@ GitHub.
 .. _`issue tracker`: https://github.com/brutus/boozelib/issues
 
 """
+from typing import Optional
 
 __version__ = "0.6.0"
 __author__ = "Brutus [DMC] <brutus.dmc@googlemail.com>"
@@ -93,13 +121,18 @@ def calculate_alcohol_weight(*, volume: int, percent: float) -> float:
     return ALCOHOL_DENSITY * volume * (percent / 100)
 
 
-def calculate_alcohol_degradation(*, weight: int, minutes: int = 1) -> float:
+def calculate_alcohol_degradation(
+    *, weight: int, minutes: int = 1, degradation: Optional[float] = None
+) -> float:
     """Return the alcohol degeneration (in gramm) over time.
 
-    For a person with *weight* (in kg) over the given *minutes*.
+    For a person with *weight* (in kg) over the given *minutes*. If
+    *degradation* is not set, :data:`ALCOHOL_DEGRADATION` is used as default.
 
     """
-    return ALCOHOL_DEGRADATION * weight * minutes
+    if degradation is None:
+        degradation = ALCOHOL_DEGRADATION
+    return degradation * weight * minutes
 
 
 def calculate_body_water(*, age: int, weight: int, height: int, sex: bool) -> float:
@@ -132,7 +165,13 @@ def gramm_to_promille(*, gramm: float, body_water: float) -> float:
 
 
 def get_blood_alcohol_content(
-    *, age: int, weight: int, height: int, sex: bool, volume: int, percent: float
+    *,
+    age: int,
+    weight: int,
+    height: int,
+    sex: bool,
+    volume: int,
+    percent: float,
 ) -> float:
     """Return the blood alcohol contents raise (per mill) for a person after a drink.
 
@@ -147,14 +186,25 @@ def get_blood_alcohol_content(
 
 
 def get_blood_alcohol_degradation(
-    *, age: int, weight: int, height: int, sex: bool, minutes: int = 1
+    *,
+    age: int,
+    weight: int,
+    height: int,
+    sex: bool,
+    minutes: int = 1,
+    degradation: Optional[float] = None,
 ) -> float:
     """Return the alcohol degradation (per mill) for a person over *minutes*.
 
     For a person with *age* (years), *weight* (kg) and *height* (cm), using the
     formular for "female body types" if *sex* is true, over the given *minutes*.
+    If *degradation* is not set, :data:`ALCOHOL_DEGRADATION` is used as default.
 
     """
-    gramm = calculate_alcohol_degradation(weight=weight, minutes=minutes)
+    if degradation is None:
+        degradation = ALCOHOL_DEGRADATION
+    gramm = calculate_alcohol_degradation(
+        weight=weight, minutes=minutes, degradation=degradation
+    )
     body_water = calculate_body_water(age=age, weight=weight, height=height, sex=sex)
     return gramm_to_promille(gramm=gramm, body_water=body_water)

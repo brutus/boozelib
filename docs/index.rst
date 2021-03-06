@@ -24,6 +24,16 @@ dependencies::
 
     pip install --user boozelib
 
+Global Variables
+================
+
+This uses some constants and one variable you might want to review:
+
+- :data:`ALCOHOL_DEGRADATION`: the default value for alcohol degradation;
+  meaning the amount of alcohol (in gram) your body is degrading per minute, per
+  kilogram body weight. This is usually a value between ``0.0017`` and
+  ``0.0025`` (about 0.1—0.2 per thousand per hour).
+
 Functions
 =========
 
@@ -38,25 +48,39 @@ The two main functions are:
 Examples
 --------
 
->>> from boozelib import get_blood_alcohol_content
+Return the **blood alcohol contents** raise (per mill) for a person after a
+drink:
+
 >>> get_blood_alcohol_content(
-...   age=32, weight=96, height=186, sex=False, volume=500, percent=4.9
+...     age=32, weight=96, height=186, sex=False, volume=500, percent=4.9
 ... )
 0.28773587455687716
+
 >>> get_blood_alcohol_content(
-...   age=32, weight=48, height=162, sex=True, volume=500, percent=4.9
+...     age=32, weight=48, height=162, sex=True, volume=500, percent=4.9
 ... )
 0.5480779730398769
 
->>> from boozelib import get_blood_alcohol_degradation
+And to calculate alcohol degradation:
+
 >>> get_blood_alcohol_degradation(
-... 	age=32, weight=96, height=186, sex=False, minutes=60
+...     age=32, weight=96, height=186, sex=False, minutes=60
 ... )
 0.21139778538872606
+
 >>> get_blood_alcohol_degradation(
-... 	age=32, weight=48, height=162, sex=True, minutes=60
+...     age=32, weight=48, height=162, sex=True, minutes=60
 ... )
 0.20133476560648536
+
+You can change the default for *alcohol degradation* globally via setting
+:data:`ALCOHOL_DEGRADATION`. Or change the value for *alcohol degradation* per
+call:
+
+>>> get_blood_alcohol_degradation(
+...     age=32, weight=48, height=162, sex=True, minutes=60, degradation=0.002
+... )
+0.16106781248518828
 
 Thanks and Contributions
 ========================
