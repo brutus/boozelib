@@ -12,6 +12,27 @@ You can find the **issue tracker** at:
 
 <!-- TOWNCRIER -->
 
+## 0.7.0 (2021-03-08)
+
+### Features
+
+- ➕ Added `sphinx-autobuild` for doc generation.
+- ✨ Add optional argument **degradation** to the
+  `calculate_alcohol_degradation` and `get_blood_alcohol_degradation`
+  functions.
+
+  If set, this value is used for _alcohol degradation_ instead of the
+  `ALCOHOL_DEGRADATION` module level variable.
+
+### Deprecations and Removals
+
+- In the next version the value used for _alcohol degradation_ will be lowered.
+
+  To keep the current default, you can override `ALCOHOL_DEGRADATION`, or use
+  the new **degradation** argument to the `calculate_alcohol_degradation` and
+  `get_blood_alcohol_degradation` functions.
+
+
 ## 0.6.0 (2021-02-02)
 
 ### Features
