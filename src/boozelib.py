@@ -85,6 +85,7 @@ GitHub.
 .. _`issue tracker`: https://github.com/brutus/boozelib/issues
 
 """
+import warnings
 from typing import Optional
 
 __version__ = "0.6.0"
@@ -111,6 +112,13 @@ BLOOD_DENSITY: float = 1.055  #: density of blood (g/ml)
 WATER_IN_BLOOD: float = 0.8  #: parts of water in blood (%)
 ALCOHOL_DEGRADATION: float = 0.0025  #: for kg body weight per minute (g)
 
+ALCOHOL_DEGRADATION_WARNING = """
+In the next version the value used for alcohol degradation will be lowered. To
+keep the current default, you can override `ALCOHOL_DEGRADATION`, or use the new
+*degradation* argument to the `calculate_alcohol_degradation` and
+`get_blood_alcohol_degradation` functions.
+"""
+
 
 def calculate_alcohol_weight(*, volume: int, percent: float) -> float:
     """Return the amount of alcohol (in gramm) contained in a drink.
@@ -130,6 +138,7 @@ def calculate_alcohol_degradation(
     *degradation* is not set, :data:`ALCOHOL_DEGRADATION` is used as default.
 
     """
+    warnings.warn(ALCOHOL_DEGRADATION_WARNING, DeprecationWarning)
     if degradation is None:
         degradation = ALCOHOL_DEGRADATION
     return degradation * weight * minutes
@@ -201,6 +210,7 @@ def get_blood_alcohol_degradation(
     If *degradation* is not set, :data:`ALCOHOL_DEGRADATION` is used as default.
 
     """
+    warnings.warn(ALCOHOL_DEGRADATION_WARNING, DeprecationWarning)
     if degradation is None:
         degradation = ALCOHOL_DEGRADATION
     gramm = calculate_alcohol_degradation(
