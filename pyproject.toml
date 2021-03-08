@@ -4,7 +4,7 @@ build-backend = "poetry.masonry.api"
 
 [tool.poetry]
 name = "boozelib"
-version = "0.6.0"
+version = "0.7.0"
 description = """
 A Python module containing a couple of tools to calculate the \
 blood alcohol content of people.

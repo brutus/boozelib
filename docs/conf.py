@@ -17,7 +17,7 @@ copyright = "2012, Brutus"
 author = "Brutus"
 
 # The full version, including alpha/beta/rc tags
-release = "v0.6.0"
+release = "v0.7.0"
 
 # -- General configuration ---------------------------------------------------
 

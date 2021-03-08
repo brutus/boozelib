@@ -88,7 +88,7 @@ GitHub.
 import warnings
 from typing import Optional
 
-__version__ = "0.6.0"
+__version__ = "0.7.0"
 __author__ = "Brutus [DMC] <brutus.dmc@googlemail.com>"
 __license__ = (
     "GNU General Public License v3 or above - "
