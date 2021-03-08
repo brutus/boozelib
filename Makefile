@@ -7,11 +7,11 @@ setup:
 
 .PHONY: lint
 lint:
-	poetry run pre-commit run --all-files
+	poetry run pre-commit run --all-files $(args)
 
 .PHONY: test tests
 test tests:
-	poetry run nox
+	poetry run nox $(args)
 
 .PHONY: docs
 docs: ip ?= 127.0.0.1
