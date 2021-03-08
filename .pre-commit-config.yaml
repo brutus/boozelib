@@ -29,6 +29,7 @@ repos:
     rev: v0.800
     hooks:
       - id: mypy
+        exclude: tests
   # Python: reorder imports
   - repo: https://github.com/asottile/reorder_python_imports
     rev: v2.3.6
